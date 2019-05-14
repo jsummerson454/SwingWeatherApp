@@ -1,0 +1,6 @@
+out/
+*.class
+.idea/usage.statistics.xml
+.idea/tasks.xml
+.idea/workspace.xml
+.DS_Store
