@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Home">
   <grid id="27dc6" binding="panel1" custom-create="true" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="174" y="198" width="229" height="400"/>
+      <xy x="174" y="198" width="263" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -38,6 +38,9 @@
               <text value="HOME"/>
             </properties>
           </component>
+          <hspacer id="62f88">
+            <constraints/>
+          </hspacer>
           <component id="bcf26" class="javax.swing.JButton" binding="settings">
             <constraints/>
             <properties>
@@ -78,7 +81,7 @@
                     </constraints>
                     <properties>
                       <font size="28"/>
-                      <text value="T*C"/>
+                      <text value="22*C"/>
                     </properties>
                   </component>
                   <component id="fdd20" class="javax.swing.JLabel" binding="feelsLike">
