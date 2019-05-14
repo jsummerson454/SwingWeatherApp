@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Home">
-  <grid id="27dc6" binding="panel1" custom-create="true" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="group18.screens.Home">
+  <grid id="27dc6" binding="homePanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="174" y="198" width="263" height="400"/>
     </constraints>
