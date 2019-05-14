@@ -7,15 +7,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="83282" class="javax.swing.JLabel">
-        <constraints border-constraint="North"/>
-        <properties>
-          <font size="36" style="0"/>
-          <horizontalAlignment value="0"/>
-          <horizontalTextPosition value="0"/>
-          <text value="HOME"/>
-        </properties>
-      </component>
       <grid id="30eed" layout-manager="FlowLayout" hgap="20" vgap="5" flow-align="1">
         <constraints border-constraint="South"/>
         <properties/>
@@ -34,6 +25,32 @@
             </properties>
           </component>
         </children>
+      </grid>
+      <grid id="6a7ec" layout-manager="FlowLayout" hgap="20" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="b83a2" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <font size="28"/>
+              <text value="HOME"/>
+            </properties>
+          </component>
+          <component id="bcf26" class="javax.swing.JButton" binding="button1" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Settings"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="b2d86" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children/>
       </grid>
     </children>
   </grid>
