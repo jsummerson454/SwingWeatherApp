@@ -46,11 +46,47 @@
           </component>
         </children>
       </grid>
-      <grid id="b2d86" layout-manager="GridBagLayout">
+      <grid id="b2d86" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties/>
         <border type="none"/>
-        <children/>
+        <children>
+          <grid id="1341a" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints border-constraint="North"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="874" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="dd13f" class="javax.swing.JLabel">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <font size="26"/>
+                      <text value="T*C"/>
+                    </properties>
+                  </component>
+                  <component id="17ab9" class="javax.swing.JLabel">
+                    <constraints border-constraint="South"/>
+                    <properties>
+                      <font size="16"/>
+                      <text value="Feels like T*C"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="b2826" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+        </children>
       </grid>
     </children>
   </grid>

@@ -1,4 +1,4 @@
-package screens;
+package group18.screens;
 
 import javax.swing.*;
 
