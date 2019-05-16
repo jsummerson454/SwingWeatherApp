@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="openweathermap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/fastjson-1.2.44.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/openweathermap-api-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
