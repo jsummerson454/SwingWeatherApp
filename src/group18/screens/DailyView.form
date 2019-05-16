@@ -29,7 +29,7 @@
                   <text value="Location"/>
                 </properties>
               </component>
-              <component id="7cc3a" class="javax.swing.JButton" binding="settings">
+              <component id="7cc3a" class="javax.swing.JButton" binding="settingsButton">
                 <constraints border-constraint="East"/>
                 <properties>
                   <text value="Settings"/>
@@ -54,12 +54,6 @@
                 <border type="none"/>
                 <children/>
               </scrollpane>
-              <hspacer id="78bd1">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
-                </constraints>
-              </hspacer>
               <vspacer id="d3d41">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -79,7 +73,7 @@
               <component id="bdc64" class="javax.swing.JButton" binding="backButton" default-binding="true">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="0.0"/>
+                  <gridbag top="0" left="0" bottom="5" right="0" weightx="1.0" weighty="0.0"/>
                 </constraints>
                 <properties>
                   <text value="Back"/>
@@ -100,7 +94,7 @@
               <component id="3d5dc" class="javax.swing.JButton" binding="suggestButton">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="0.0" weighty="0.0"/>
+                  <gridbag top="0" left="0" bottom="5" right="0" weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
                   <text value="Suggest"/>
