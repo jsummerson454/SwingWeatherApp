@@ -31,7 +31,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="b83a2" class="javax.swing.JLabel">
+          <component id="b83a2" class="javax.swing.JLabel" binding="titleLabel">
             <constraints border-constraint="West"/>
             <properties>
               <font size="28"/>

@@ -2,8 +2,10 @@ package group18.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Settings {
+public class SettingsView {
     private JPanel settingsPanel;
     private JPanel mainPanel;
     private JButton backButton;
@@ -31,6 +33,11 @@ public class Settings {
     private JPanel locationLayoutPanel;
     private JLabel locationLabel;
     private JLabel selectionLabel;
+    private JLabel titleLabel;
+
+    public SettingsView() {
+
+    }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

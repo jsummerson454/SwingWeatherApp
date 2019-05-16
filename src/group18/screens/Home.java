@@ -23,6 +23,7 @@ public class Home {
     private JButton weekly;
     private JButton hourly;
     private JButton settings;
+    private JLabel titleLabel;
 
     private void createUIComponents() {
 
