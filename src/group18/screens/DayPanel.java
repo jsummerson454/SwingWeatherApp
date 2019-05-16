@@ -3,8 +3,7 @@ package group18.screens;
 import javax.swing.*;
 import java.awt.*;
 
-public class DayPanel
-{
+public class DayPanel {
     private JPanel main;
     private JLabel lbDate;
     private JLabel lbDegrees;
@@ -25,8 +24,7 @@ public class DayPanel
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
         final JPanel panel1 = new JPanel();
@@ -90,8 +88,7 @@ public class DayPanel
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return main;
     }
 }

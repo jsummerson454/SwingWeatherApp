@@ -4,8 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class DailyView
-{
+public class DailyView {
     private JLabel lbLocation;
     private JButton settingsButton;
     private JScrollPane spDayList;
@@ -13,8 +12,7 @@ public class DailyView
     private JButton suggestButton;
     public JPanel main;
 
-    public void addDailyButtonListener(ActionListener mal)
-    {
+    public void addDailyButtonListener(ActionListener mal) {
         settingsButton.addActionListener(mal);
     }
 
@@ -32,8 +30,7 @@ public class DailyView
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
         final JPanel panel1 = new JPanel();
@@ -128,8 +125,7 @@ public class DailyView
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return main;
     }
 }
