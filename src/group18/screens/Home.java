@@ -77,7 +77,7 @@ public class Home {
         mainPanel.setLayout(new BorderLayout(0, 0));
         homePanel.add(mainPanel, BorderLayout.CENTER);
         warningsAndPlans = new JPanel();
-        warningsAndPlans.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        warningsAndPlans.setLayout(new GridBagLayout());
         mainPanel.add(warningsAndPlans, BorderLayout.SOUTH);
         temperatureAndImage = new JPanel();
         temperatureAndImage.setLayout(new GridBagLayout());

@@ -169,7 +169,11 @@
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties>
-                      <foreground color="-15708306"/>
+                      <foreground color="-16735246"/>
+                      <inverted value="false"/>
+                      <paintLabels value="false"/>
+                      <paintTicks value="false"/>
+                      <paintTrack value="true"/>
                     </properties>
                   </component>
                   <component id="85317" class="javax.swing.JLabel" binding="hotLabel">
@@ -186,7 +190,11 @@
                       <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <enabled value="true"/>
+                      <foreground color="-917484"/>
+                      <paintTrack value="true"/>
+                    </properties>
                   </component>
                   <component id="22adb" class="javax.swing.JLabel" binding="belowLabel">
                     <constraints>

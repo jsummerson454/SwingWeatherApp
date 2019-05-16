@@ -9,10 +9,19 @@ import java.awt.event.ActionListener;
 
 public class SettingsController
 {
-    SettingsView settingView;
+    private SettingsView settingView;
 
-    int hotSliderPos = 0;
-    int coldSliderPos = 0;
+
+    private int hotSliderPos = 0;
+    private int coldSliderPos = 0;
+
+    private double coldStart = -10.0;
+    private double hotStart = 24.0;
+
+    private double coldMultiplier = 0.2;
+    private double hotMultiplier = 0.1;
+
+
 
     public void changeUnitsToFahrenheit() {
 

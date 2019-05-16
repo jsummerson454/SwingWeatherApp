@@ -210,7 +210,11 @@ public class SettingsView {
         gbc.anchor = GridBagConstraints.WEST;
         notificationLayoutPanel.add(coldLabel, gbc);
         coldSlider = new JSlider();
-        coldSlider.setForeground(new Color(-15708306));
+        coldSlider.setForeground(new Color(-16735246));
+        coldSlider.setInverted(false);
+        coldSlider.setPaintLabels(false);
+        coldSlider.setPaintTicks(false);
+        coldSlider.setPaintTrack(true);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 4;
@@ -226,6 +230,9 @@ public class SettingsView {
         gbc.anchor = GridBagConstraints.WEST;
         notificationLayoutPanel.add(hotLabel, gbc);
         hotSlider = new JSlider();
+        hotSlider.setEnabled(true);
+        hotSlider.setForeground(new Color(-917484));
+        hotSlider.setPaintTrack(true);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 6;
