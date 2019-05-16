@@ -171,9 +171,13 @@
                     <properties>
                       <foreground color="-16735246"/>
                       <inverted value="false"/>
+                      <maximum value="20"/>
                       <paintLabels value="false"/>
                       <paintTicks value="false"/>
                       <paintTrack value="true"/>
+                      <snapToTicks value="true"/>
+                      <value value="10"/>
+                      <valueIsAdjusting value="false"/>
                     </properties>
                   </component>
                   <component id="85317" class="javax.swing.JLabel" binding="hotLabel">
@@ -193,7 +197,11 @@
                     <properties>
                       <enabled value="true"/>
                       <foreground color="-917484"/>
+                      <maximum value="10"/>
                       <paintTrack value="true"/>
+                      <snapToTicks value="true"/>
+                      <value value="5"/>
+                      <valueIsAdjusting value="false"/>
                     </properties>
                   </component>
                   <component id="22adb" class="javax.swing.JLabel" binding="belowLabel">
@@ -202,6 +210,7 @@
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties>
+                      <font/>
                       <text value="Below T*C"/>
                     </properties>
                   </component>
@@ -211,6 +220,7 @@
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties>
+                      <font/>
                       <text value="Above T*C"/>
                     </properties>
                   </component>

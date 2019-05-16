@@ -50,6 +50,8 @@ public class SettingsView {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
+
+
     }
 
 
@@ -212,9 +214,13 @@ public class SettingsView {
         coldSlider = new JSlider();
         coldSlider.setForeground(new Color(-16735246));
         coldSlider.setInverted(false);
+        coldSlider.setMaximum(20);
         coldSlider.setPaintLabels(false);
         coldSlider.setPaintTicks(false);
         coldSlider.setPaintTrack(true);
+        coldSlider.setSnapToTicks(true);
+        coldSlider.setValue(10);
+        coldSlider.setValueIsAdjusting(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 4;
@@ -232,7 +238,11 @@ public class SettingsView {
         hotSlider = new JSlider();
         hotSlider.setEnabled(true);
         hotSlider.setForeground(new Color(-917484));
+        hotSlider.setMaximum(10);
         hotSlider.setPaintTrack(true);
+        hotSlider.setSnapToTicks(true);
+        hotSlider.setValue(5);
+        hotSlider.setValueIsAdjusting(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 6;
@@ -241,6 +251,8 @@ public class SettingsView {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         notificationLayoutPanel.add(hotSlider, gbc);
         belowLabel = new JLabel();
+        Font belowLabelFont = this.$$$getFont$$$(null, -1, -1, belowLabel.getFont());
+        if (belowLabelFont != null) belowLabel.setFont(belowLabelFont);
         belowLabel.setText("Below T*C");
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
@@ -248,6 +260,8 @@ public class SettingsView {
         gbc.gridheight = 2;
         notificationLayoutPanel.add(belowLabel, gbc);
         aboveLabel = new JLabel();
+        Font aboveLabelFont = this.$$$getFont$$$(null, -1, -1, aboveLabel.getFont());
+        if (aboveLabelFont != null) aboveLabel.setFont(aboveLabelFont);
         aboveLabel.setText("Above T*C");
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
