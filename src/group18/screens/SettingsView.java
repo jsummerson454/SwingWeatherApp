@@ -210,6 +210,7 @@ public class SettingsView {
         gbc.anchor = GridBagConstraints.WEST;
         notificationLayoutPanel.add(coldLabel, gbc);
         coldSlider = new JSlider();
+        coldSlider.setForeground(new Color(-15708306));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 4;
@@ -294,6 +295,13 @@ public class SettingsView {
         backButton = new JButton();
         backButton.setText("Back");
         panel1.add(backButton);
+        ButtonGroup buttonGroup;
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(onRadioButton);
+        buttonGroup.add(offRadioButton);
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(celciusRadioButton);
+        buttonGroup.add(fahrenheitRadioButton);
     }
 
     /**

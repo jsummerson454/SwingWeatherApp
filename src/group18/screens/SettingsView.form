@@ -168,7 +168,9 @@
                       <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <foreground color="-15708306"/>
+                    </properties>
                   </component>
                   <component id="85317" class="javax.swing.JLabel" binding="hotLabel">
                     <constraints>
@@ -277,4 +279,14 @@
       </grid>
     </children>
   </grid>
+  <buttonGroups>
+    <group name="notificationButtonGroup">
+      <member id="c7a05"/>
+      <member id="87d8a"/>
+    </group>
+    <group name="unitButtonGroup">
+      <member id="1b202"/>
+      <member id="1e672"/>
+    </group>
+  </buttonGroups>
 </form>

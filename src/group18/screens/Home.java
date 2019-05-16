@@ -51,7 +51,7 @@ public class Home {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        createUIComponents();
+        homePanel = new JPanel();
         homePanel.setLayout(new BorderLayout(0, 0));
         bottomButtons = new JPanel();
         bottomButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
