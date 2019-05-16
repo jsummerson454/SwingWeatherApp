@@ -1,7 +1,5 @@
 package group18.controllers;
 
-import group18.backend.Location;
-
 public class SettingsController
 {
 
@@ -29,7 +27,7 @@ public class SettingsController
     {
 
     }
-    public void setLocation(Location location)
+    //public void setLocation(Location location)
     {
 
     }
