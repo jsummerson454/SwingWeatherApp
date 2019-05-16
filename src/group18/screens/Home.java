@@ -1,11 +1,12 @@
 package group18.screens;
 
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Home {
-    private JPanel homePanel;
+    public JPanel homePanel;
+
     private JPanel topButtons;
     private JPanel bottomButtons;
     private JPanel mainPanel;
@@ -24,7 +25,14 @@ public class Home {
     private JButton settings;
 
     private void createUIComponents() {
-        
+
 
     }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        frame.setContentPane(new Home().homePanel);
+        frame.setVisible(true);
+    }
+
 }
