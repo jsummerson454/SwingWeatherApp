@@ -12,8 +12,8 @@ public class Home {
     private JPanel mainPanel;
 
     private JPanel warningsAndPlans;
-    private JPanel temperatureView;
-    private JPanel temperature;
+    private JPanel temperatureAndImage;
+    private JPanel image;
 
     private JLabel actualTemperature;
     private JLabel feelsLike;
