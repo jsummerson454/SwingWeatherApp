@@ -4,8 +4,7 @@ import group18.screens.SettingsView;
 
 public class SettingsController
 {
-    SettingsView settingView = new SettingsView();
-
+    SettingsView settingView;
 
     public void changeUnitsToFahrenheit() {
 
@@ -38,5 +37,11 @@ public class SettingsController
 
     }
 
+
+    public SettingsController (SettingsView settingsView) {
+        this.settingView = settingsView;
+
+
+    }
 
 }
