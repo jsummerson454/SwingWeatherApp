@@ -4,6 +4,7 @@ import group18.controllers.DailyController;
 import group18.controllers.HomeController;
 import group18.controllers.HourlyController;
 import group18.controllers.SettingsController;
+import group18.models.SettingsModel;
 import group18.screens.HomeView;
 import group18.screens.HourlyView;
 import group18.screens.DailyView;
@@ -16,6 +17,8 @@ public class Application {
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
+
+    private SettingsModel settingsModel;
 
     private JFrame window;
 
@@ -65,6 +68,8 @@ public class Application {
         hourly.main.setSize(360, 640);
 
         settings = new SettingsView();
+        settingsModel = new SettingsModel(settings);
+
         settings.main.setVisible(false);
         settings.main.setSize(360, 640);
 
@@ -72,7 +77,7 @@ public class Application {
         HomeController homeController = new HomeController(home);
         DailyController dailyController = new DailyController(daily);
         HourlyController hourlyController = new HourlyController(hourly);
-        SettingsController settingsController = new SettingsController(settings);
+        SettingsController settingsController = new SettingsController(settingsModel);
 
         //add screens to window
         window = new JFrame();

@@ -30,6 +30,14 @@ public class Home {
 
     }
 
+    public Home() {
+        Dimension buttonSize = new Dimension(50, 50);
+        settings.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
+        settings.setMaximumSize(buttonSize);
+        settings.setMinimumSize(buttonSize);
+        settings.setPreferredSize(buttonSize);
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setContentPane(new Home().homePanel);
@@ -55,15 +63,19 @@ public class Home {
         homePanel.setLayout(new BorderLayout(0, 0));
         bottomButtons = new JPanel();
         bottomButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
+        bottomButtons.setBackground(new Color(-8928782));
         homePanel.add(bottomButtons, BorderLayout.SOUTH);
         weekly = new JButton();
+        weekly.setBackground(new Color(-1842305));
         weekly.setText("Weekly");
         bottomButtons.add(weekly);
         hourly = new JButton();
+        hourly.setBackground(new Color(-1842305));
         hourly.setText("Hourly");
         bottomButtons.add(hourly);
         topButtons = new JPanel();
         topButtons.setLayout(new BorderLayout(0, 0));
+        topButtons.setBackground(new Color(-8928782));
         homePanel.add(topButtons, BorderLayout.NORTH);
         titleLabel = new JLabel();
         Font titleLabelFont = this.$$$getFont$$$(null, -1, 28, titleLabel.getFont());
@@ -71,7 +83,8 @@ public class Home {
         titleLabel.setText("Home");
         topButtons.add(titleLabel, BorderLayout.WEST);
         settings = new JButton();
-        settings.setText("Settings");
+        settings.setBackground(new Color(-8928782));
+        settings.setText("");
         topButtons.add(settings, BorderLayout.EAST);
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(0, 0));
@@ -81,6 +94,7 @@ public class Home {
         mainPanel.add(warningsAndPlans, BorderLayout.SOUTH);
         temperatureAndImage = new JPanel();
         temperatureAndImage.setLayout(new GridBagLayout());
+        temperatureAndImage.setBackground(new Color(-4395790));
         mainPanel.add(temperatureAndImage, BorderLayout.CENTER);
         actualTemperature = new JLabel();
         Font actualTemperatureFont = this.$$$getFont$$$(null, -1, 28, actualTemperature.getFont());
@@ -94,12 +108,6 @@ public class Home {
         gbc.weighty = 0.5;
         gbc.anchor = GridBagConstraints.SOUTHWEST;
         temperatureAndImage.add(actualTemperature, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        temperatureAndImage.add(spacer1, gbc);
         feelsLike = new JLabel();
         Font feelsLikeFont = this.$$$getFont$$$(null, -1, 18, feelsLike.getFont());
         if (feelsLikeFont != null) feelsLike.setFont(feelsLikeFont);
@@ -114,8 +122,9 @@ public class Home {
         temperatureAndImage.add(feelsLike, gbc);
         image = new JPanel();
         image.setLayout(new BorderLayout(0, 0));
+        image.setBackground(new Color(-4395790));
         gbc = new GridBagConstraints();
-        gbc.gridx = 2;
+        gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.gridheight = 2;
         gbc.weightx = 0.75;
