@@ -6,7 +6,7 @@ import java.awt.*;
 public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
-    private JLabel lbCallendarIcon;
+    public JLabel lbCallendarIcon;
     private JButton addEventButton;
     public JPanel main;
     public JLabel lbHumidity;

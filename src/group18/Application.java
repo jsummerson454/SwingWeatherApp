@@ -25,7 +25,7 @@ public class Application {
 
     private JFrame window;
 
-    public ImageIcon getWeatherIcon(WeatherIconType w) {
+    public static ImageIcon getWeatherIcon(WeatherIconType w) {
         // Gets the corresponding weather icon based on type entered
         String s = "resources/";
         switch (w) {

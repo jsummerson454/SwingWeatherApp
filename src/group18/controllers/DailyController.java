@@ -86,7 +86,8 @@ public class DailyController {
             Image image = imageIcon.getImage(); // transform it
             Image newimg = image.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
             imageIcon = new ImageIcon(newimg);
-            dayPanel.lbCallendarIcon.setIcon(imageIcon);
+            dayPanel.lbWeatherIcon.setText("");
+            dayPanel.lbWeatherIcon.setIcon(imageIcon);
 
 
 //            dayPanel.lbWeatherIcon.setIcon();
