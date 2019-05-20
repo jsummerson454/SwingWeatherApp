@@ -45,8 +45,6 @@ public class HourlyController {
             }
         });
         addHourlyForecast(model.getHourlyList());
-//        view.addHourlyForecast(model.getHourList());
-        System.out.println("I'M HERE");
     }
 
     private void initModel(){
@@ -64,13 +62,12 @@ public class HourlyController {
         constraints.fill = 1;
         int y = 0;
 
-
         for (Hour hour : HourList)
         {
             HourlyPanels hourPanel = new HourlyPanels();
             constraints.gridy = y++;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
-            view.spHourList.add(hourPanel.main, constraints);
+            view.spHourPanel.add(hourPanel.main, constraints);
             hourPanel.main.addMouseListener(new MouseAdapter()
             {
                 @Override
@@ -87,7 +84,7 @@ public class HourlyController {
 //            TODO
 //            hourPanel.lbCallendarIcon.setIcon();
 //            hourPanel.lbWeatherIcon.setIcon();
-            hourPanel.lbDate.setText(Integer.toString(hour.getHour()));
+            hourPanel.lbDate.setText("Time: " + Integer.toString(hour.getHour()));
             hourPanel.lbDegrees.setText(settingsModel.getInUnits(hour.getTemperature()));
             hourPanel.main.setVisible(true);
 
