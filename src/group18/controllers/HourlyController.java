@@ -29,7 +29,8 @@ public class HourlyController {
     public HourlyController(SettingsModel settingsModel, HourlyView view) {
         this.view = view;
         this.settingsModel = settingsModel;
-
+    }
+/*
         initModel();
         view.addSettingsButtonListener(a ->
         {
@@ -93,6 +94,6 @@ public class HourlyController {
 
         }
     }
-
+*/
 
 }
