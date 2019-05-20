@@ -24,6 +24,7 @@ public class HomeView {
 
     private JLabel titleLabel;
     public JLabel imageIcon;
+    public JButton notificationButton;
 
     private void createUIComponents() {
 
@@ -141,6 +142,12 @@ public class HomeView {
         imageIcon.setHorizontalAlignment(4);
         imageIcon.setText("");
         imagePanel.add(imageIcon, BorderLayout.CENTER);
+        notificationButton = new JButton();
+        notificationButton.setBackground(new Color(-1842305));
+        Font notificationButtonFont = this.$$$getFont$$$(null, -1, 10, notificationButton.getFont());
+        if (notificationButtonFont != null) notificationButton.setFont(notificationButtonFont);
+        notificationButton.setText("Simulate Notification");
+        imagePanel.add(notificationButton, BorderLayout.SOUTH);
     }
 
     /**

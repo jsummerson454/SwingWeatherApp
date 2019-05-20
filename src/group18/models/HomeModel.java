@@ -14,23 +14,30 @@ public class HomeModel {
     public HomeView homeView;
     private SettingsModel settingsModel;
 
-    private double averageTemp;
+    public double getAverageTemperature() {
+        return averageTemperature;
+    }
+
+    private double averageTemperature;
+
 
     public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
+        this.settingsModel = settingsModel;
+
         Calendar thisInstant = Calendar.getInstance();
 
         Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
 
         // Setting up the average temperature
-        averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
+        averageTemperature = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
         homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
         refreshLabels();
     }
 
     public void refreshLabels () {
         // Using function in to convert to string
-        String tempStr = settingsModel.getInUnits(averageTemp);
+        String tempStr = settingsModel.getInUnits(averageTemperature);
         homeView.actualTemperature.setText(tempStr);
         // Our API does not provide this so we are just setting it to the current
         // temperature for now

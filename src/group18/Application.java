@@ -22,6 +22,7 @@ public class Application {
     private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
+    private HomeModel homeModel;
 
     private JFrame window;
 
@@ -134,7 +135,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(settingsModel,home);
+        homeModel = new HomeModel(settingsModel,home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
@@ -151,7 +152,7 @@ public class Application {
 
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-        HomeController homeController = new HomeController(homeModel);
+        HomeController homeController = new HomeController(settingsModel,homeModel);
         DailyController dailyController = new DailyController(settingsModel,daily);
         HourlyController hourlyController = new HourlyController(settingsModel,hourly);
 
