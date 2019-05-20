@@ -74,11 +74,7 @@ public class Application {
         try
         {
             settingsModel = SettingsModel.initSettingsModel(settings);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            settingsModel = new SettingsModel(settings);
-        } catch (ClassNotFoundException e)
+        } catch (Exception e)
         {
             e.printStackTrace();
             settingsModel = new SettingsModel(settings);
