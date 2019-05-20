@@ -18,7 +18,8 @@ public class Application {
     private SettingsView settings;
     public static String location;
 
-    public LinkedList<Screen> previousScreen = new LinkedList<>();
+    // Keeps a stack of screens traversed through
+    private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
 
@@ -34,6 +35,7 @@ public class Application {
     }
 
     public ImageIcon getWeatherIcon(WeatherIconType w) {
+        // Gets the corresponding weather icon based on type entered
         String s = "resources/";
         switch (w) {
             case Cloudy:
@@ -93,10 +95,12 @@ public class Application {
     }
 
     public void addAScreen(Screen s) {
+        // Adds to the screen traversal stack
         previousScreen.add(s);
     }
 
     public void backAScreen() {
+        // Navigates back to the last screen
         Screen s = previousScreen.removeLast();
         switch (s) {
             case home:
@@ -114,8 +118,7 @@ public class Application {
         }
     }
 
-    public SettingsModel getSettingsModel()
-    {
+    public SettingsModel getSettingsModel() {
         return settingsModel;
     }
 
@@ -140,7 +143,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(settingsModel, home);
+        HomeModel homeModel = new HomeModel(home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
