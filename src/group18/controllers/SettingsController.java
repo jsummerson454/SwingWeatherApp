@@ -17,11 +17,6 @@ public class SettingsController
     private int hotSliderPos = 0;
     private int coldSliderPos = 0;
 
-    private double coldStart = -10;
-    private double hotStart = 24;
-
-
-
 
     void backToPreviousScreen() {
 
@@ -79,7 +74,7 @@ public class SettingsController
             @Override
             public void stateChanged(ChangeEvent e) {
                 coldSliderPos = settingsView.coldSlider.getValue();
-                double coldValue = coldSliderPos + coldStart;
+                double coldValue = coldSliderPos;
                 settingsModel.setColdThreshold(coldValue);
             }
         });
@@ -88,7 +83,7 @@ public class SettingsController
             @Override
             public void stateChanged(ChangeEvent e) {
                 hotSliderPos = settingsView.hotSlider.getValue();
-                double hotValue = hotSliderPos + hotStart;
+                double hotValue = hotSliderPos;
                 settingsModel.setHotThreshold(hotValue);
             }
         });

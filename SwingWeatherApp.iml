@@ -8,5 +8,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="ForecastIOLib-1.5.2-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="ForecastIOLib-1.5.2-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="fastjson-1.2.44" level="project" />
+    <orderEntry type="library" name="ForecastIOLib-1.5.2-jar-with-dependencies (2)" level="project" />
+    <orderEntry type="library" name="openweathermap-api-1.0" level="project" />
   </component>
 </module>

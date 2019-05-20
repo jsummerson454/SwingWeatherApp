@@ -1,13 +1,13 @@
 package group18.controllers;
 
 import group18.Main;
-import group18.screens.HomeView;
+import group18.screens.HomeViewOld;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HomeController {
-    private HomeView view;
+    private HomeViewOld view;
 
     private class DailyButtonListener implements ActionListener {
         @Override
@@ -21,7 +21,7 @@ public class HomeController {
         }
     }
 
-    public HomeController(HomeView view) {
+    public HomeController(HomeViewOld view) {
         this.view = view;
 
         view.addDailyButtonListener(new DailyButtonListener());

@@ -16,6 +16,9 @@ public class SettingsModel implements Serializable
     private double coldThreshold = -2.0;
     private double hotThreshold = 32.0;
 
+    private double coldStart = -10;
+    private double hotStart = 24;
+
     private String getInUnits (double val) {
         // Returns a string of the temperature
         // in the correct units
@@ -36,8 +39,8 @@ public class SettingsModel implements Serializable
         settingsView.aboveLabel.setText("Above  " + getInUnits(hotThreshold));
     }
 
-    public void setColdThreshold(double coldThreshold) {
-        this.coldThreshold = coldThreshold;
+    public void setColdThreshold(double sliderPos) {
+        this.coldThreshold = sliderPos + coldStart;
         settingsView.belowLabel.setText("Below  " + getInUnits(coldThreshold));
     }
 
@@ -45,8 +48,8 @@ public class SettingsModel implements Serializable
         return hotThreshold;
     }
 
-    public void setHotThreshold(double hotThreshold) {
-        this.hotThreshold = hotThreshold;
+    public void setHotThreshold(double sliderPos) {
+        this.hotThreshold = sliderPos + hotStart;
         settingsView.aboveLabel.setText("Above  " + getInUnits(hotThreshold));
     }
 
@@ -83,6 +86,8 @@ public class SettingsModel implements Serializable
     public SettingsModel(SettingsView settingsView) {
         this.settingsView = settingsView;
         updateAboveBelowLabels();
+        settingsView.coldSlider.setValue((int)(coldThreshold-coldStart));
+        settingsView.hotSlider.setValue((int)(hotThreshold-hotStart));
     }
 
     // initializing the view on start

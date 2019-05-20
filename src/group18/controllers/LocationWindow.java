@@ -38,7 +38,7 @@ public class LocationWindow {
 
 
 
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setVisible(true);
     }
 }
