@@ -17,7 +17,7 @@ public class DailyView
     public JPanel main;
     public JPanel dayListPanel;
 
-    public void addDailyButtonListener(ActionListener mal)
+    public void addSettingsButtonListener(ActionListener mal)
     {
         settingsButton.addActionListener(mal);
     }
