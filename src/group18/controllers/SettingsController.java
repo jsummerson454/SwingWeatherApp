@@ -1,5 +1,6 @@
 package group18.controllers;
 
+import group18.Main;
 import group18.models.SettingsModel;
 import group18.screens.SettingsView;
 
@@ -11,21 +12,14 @@ import java.awt.event.ActionListener;
 public class SettingsController
 {
     private SettingsModel settingsModel;
-    private SettingsView settingsView;
 
 
     private int hotSliderPos = 0;
     private int coldSliderPos = 0;
 
-
-    void backToPreviousScreen() {
-
-    }
-
-
     public SettingsController (SettingsModel settingsModel) {
         this.settingsModel = settingsModel;
-        settingsView = settingsModel.getView();
+        SettingsView settingsView = settingsModel.getView();
 
         settingsView.backButton.addActionListener(new ActionListener() {
             @Override

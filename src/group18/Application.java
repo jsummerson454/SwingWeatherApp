@@ -1,20 +1,14 @@
 package group18;
 
-import group18.controllers.DailyController;
-import group18.controllers.HomeController;
-import group18.controllers.HourlyController;
-import group18.controllers.SettingsController;
+import group18.controllers.*;
+import group18.models.HomeModel;
 import group18.models.SettingsModel;
-import group18.screens.HomeViewOld;
-import group18.screens.HourlyView;
-import group18.screens.DailyView;
-import group18.screens.SettingsView;
+import group18.screens.*;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class Application {
-    private HomeViewOld home;
+    private HomeView home;
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
@@ -62,7 +56,7 @@ public class Application {
 
         //initialize screens (with required models as parameters)
         settings = new SettingsView();
-//        settingsModel = new SettingsModel(settings);
+        // settingsModel = new SettingsModel(settings);
         try
         {
             settingsModel = SettingsModel.initSettingsModel(settings);
@@ -74,9 +68,11 @@ public class Application {
         settings.main.setVisible(false);
         settings.main.setSize(360, 640);
 
-        home = new HomeViewOld();
+        home = new HomeView();
         home.main.setVisible(true);
         home.main.setSize(360, 640);
+
+        HomeModel homeModel = new HomeModel(settingsModel, home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
@@ -93,7 +89,7 @@ public class Application {
 
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-        HomeController homeController = new HomeController(home);
+        HomeController homeController = new HomeController(homeModel);
         DailyController dailyController = new DailyController(daily);
         HourlyController hourlyController = new HourlyController(hourly);
 

@@ -9,17 +9,20 @@ public class SettingsModel implements Serializable
     public static String settingsFilePath = "data"+ System.getProperty("file.separator") + "settings";
     private transient SettingsView settingsView;
 
+    // Enabled to true by default
     private boolean celsius = true;
-    private boolean notifications;
+    private boolean notifications = true;
 
     // These variables are stored in celsius
     private double coldThreshold = -2.0;
     private double hotThreshold = 32.0;
 
+    // Some parameters for the sliders
+    // The users should not be able to change this
     private double coldStart = -10;
     private double hotStart = 24;
 
-    private String getInUnits (double val) {
+    public String getInUnits (double val) {
         // Returns a string of the temperature
         // in the correct units
         if (celsius) {
@@ -27,7 +30,6 @@ public class SettingsModel implements Serializable
         }
         return String.format("%.2f℉", val*1.8 + 32.0);
     }
-
 
     public double getColdThreshold() {
         return coldThreshold;
@@ -40,7 +42,8 @@ public class SettingsModel implements Serializable
     }
 
     public void setColdThreshold(double sliderPos) {
-        this.coldThreshold = sliderPos + coldStart;
+        // Sets the cold threshold and configures the explanation text
+        coldThreshold = sliderPos + coldStart;
         settingsView.belowLabel.setText("Below  " + getInUnits(coldThreshold));
     }
 
@@ -49,7 +52,8 @@ public class SettingsModel implements Serializable
     }
 
     public void setHotThreshold(double sliderPos) {
-        this.hotThreshold = sliderPos + hotStart;
+        // Sets the hot threshold and configures the explanation test
+        hotThreshold = sliderPos + hotStart;
         settingsView.aboveLabel.setText("Above  " + getInUnits(hotThreshold));
     }
 
@@ -66,11 +70,13 @@ public class SettingsModel implements Serializable
     }
 
     public void setCelsius() {
+        // Sets celsius and updates labels to celsius
         celsius = true;
         updateAboveBelowLabels();
     }
 
     public void setFahrenheit () {
+        // Sets Fahrenheit and updates labels to that unit
         celsius = false;
         updateAboveBelowLabels();
     }
@@ -84,6 +90,7 @@ public class SettingsModel implements Serializable
     }
 
     public SettingsModel(SettingsView settingsView) {
+        // Puts the slider in the correct position and updates labels
         this.settingsView = settingsView;
         updateAboveBelowLabels();
         settingsView.coldSlider.setValue((int)(coldThreshold-coldStart));
@@ -115,7 +122,7 @@ public class SettingsModel implements Serializable
                 new ObjectInputStream(new FileInputStream(SettingsModel.settingsFilePath));
 
         SettingsModel settingsModel = (SettingsModel) inputStream.readObject();
-        settingsModel.settingsView =settingsView;
+        settingsModel.settingsView = settingsView;
         settingsModel.initView();
 
         return settingsModel;
