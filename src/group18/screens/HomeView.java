@@ -23,7 +23,7 @@ public class HomeView {
     public JButton settings;
 
     private JLabel titleLabel;
-    private JLabel imageIcon;
+    public JLabel imageIcon;
 
     private void createUIComponents() {
 

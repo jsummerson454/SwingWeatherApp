@@ -1,6 +1,7 @@
 package group18;
 
 import group18.backend.Screen;
+import group18.backend.WeatherIconType;
 import group18.controllers.*;
 import group18.models.HomeModel;
 import group18.models.SettingsModel;
@@ -22,6 +23,46 @@ public class Application {
     private SettingsModel settingsModel;
 
     private JFrame window;
+
+    public String getInUnits (double val) {
+        // Returns a string of the temperature
+        // in the correct units
+        if (settingsModel.isCelsius()) {
+            return String.format("%.2f℃", val);
+        }
+        return String.format("%.2f℉", val*1.8 + 32.0);
+    }
+
+    public ImageIcon getWeatherIcon(WeatherIconType w) {
+        String s = "resources/";
+        switch (w) {
+            case Cloudy:
+                s += "cloudy.png";
+                break;
+            case Fog:
+                s += "fog.png";
+                break;
+            case Partly_Cloudy:
+                s += "partly-cloudy-day.png";
+                break;
+            case Snow:
+                s += "snow.png";
+                break;
+            case Rain:
+                s += "rain.png";
+                break;
+            case Wind:
+                s += "wind.png";
+                break;
+            case Sleet:
+                s += "sleet.png";
+                break;
+            default:
+                s += "clear-day.png";
+                break;
+        }
+        return new ImageIcon(s);
+    }
 
     public void setViewHome() {
         daily.main.setVisible(false);

@@ -3,12 +3,15 @@ package group18.controllers;
 import group18.Main;
 import group18.api.WeatherAPI;
 import group18.backend.Day;
+import group18.backend.Screen;
 import group18.models.DailyModel;
 import group18.screens.DailyView;
 import group18.screens.DayPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -22,8 +25,18 @@ public class DailyController {
         initModel();
         view.addSettingsButtonListener(a ->
         {
+            Main.app.addAScreen(Screen.daily);
             Main.app.setViewSettings();
         });
+
+        view.backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.app.backAScreen();
+            }
+        });
+
+
 
 
         addDailyForecast(model.getDayList());

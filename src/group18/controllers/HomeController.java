@@ -19,7 +19,7 @@ public class HomeController {
         homeView.settings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.app.previousScreen.add(Screen.home);
+                Main.app.addAScreen(Screen.home);
                 Main.app.setViewSettings();
             }
         });
@@ -27,7 +27,7 @@ public class HomeController {
         homeView.hourly.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.app.previousScreen.add(Screen.home);
+                Main.app.addAScreen(Screen.home);
                 Main.app.setViewHourly();
             }
         });
@@ -35,7 +35,7 @@ public class HomeController {
         homeView.weekly.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.app.previousScreen.add(Screen.home);
+                Main.app.addAScreen(Screen.home);
                 Main.app.setViewDaily();
             }
         });
