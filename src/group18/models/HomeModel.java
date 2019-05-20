@@ -11,7 +11,7 @@ public class HomeModel {
     public HomeModel (HomeView homeView, FIOCurrently currently) {
         this.homeView = homeView;
 
-        currently.get().
+        
 
     }
 }
