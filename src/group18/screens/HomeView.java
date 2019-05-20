@@ -136,6 +136,7 @@ public class HomeView {
         gbc.fill = GridBagConstraints.BOTH;
         temperatureAndImage.add(imagePanel, gbc);
         imageIcon = new JLabel();
+        imageIcon.setHorizontalAlignment(4);
         imageIcon.setText("");
         imagePanel.add(imageIcon, BorderLayout.CENTER);
     }

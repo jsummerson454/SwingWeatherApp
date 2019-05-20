@@ -105,6 +105,7 @@
                   <component id="56f98" class="javax.swing.JLabel" binding="imageIcon">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <horizontalAlignment value="4"/>
                       <text value=""/>
                     </properties>
                   </component>

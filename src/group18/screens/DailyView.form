@@ -26,13 +26,14 @@
               <component id="493c4" class="javax.swing.JLabel" binding="lbLocation">
                 <constraints border-constraint="Center"/>
                 <properties>
+                  <font size="28"/>
                   <text value="Location"/>
                 </properties>
               </component>
               <component id="7cc3a" class="javax.swing.JButton" binding="settingsButton">
                 <constraints border-constraint="East"/>
                 <properties>
-                  <text value="Settings"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
