@@ -46,7 +46,7 @@ public class HomeController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 NotificationWindow notificationWindow = new NotificationWindow(settingsModel,
-                        homeModel.getAverageTemperature());
+                        homeModel.getAverageTemp());
             }
         });
 

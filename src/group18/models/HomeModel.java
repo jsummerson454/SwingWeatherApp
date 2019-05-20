@@ -13,11 +13,18 @@ import java.util.Calendar;
 public class HomeModel {
     public HomeView homeView;
     private SettingsModel settingsModel;
-
     private double averageTemp;
+
+    public double getAverageTemp()
+    {
+        return averageTemp;
+    }
+
+
 
     public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
+        this.settingsModel = settingsModel;
         Calendar thisInstant = Calendar.getInstance();
 
         Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
