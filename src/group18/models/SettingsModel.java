@@ -2,9 +2,12 @@ package group18.models;
 
 import group18.screens.SettingsView;
 
-public class SettingsModel {
+import java.io.*;
 
-    private SettingsView settingsView;
+public class SettingsModel implements Serializable
+{
+    public static String settingsFilePath = "data/settings";
+    private transient SettingsView settingsView;
 
     private boolean celsius = true;
     private boolean notifications;
@@ -80,6 +83,37 @@ public class SettingsModel {
     public SettingsModel(SettingsView settingsView) {
         this.settingsView = settingsView;
         updateAboveBelowLabels();
+    }
+
+    // initializing the view on start
+    public void initView()
+    {
+        updateAboveBelowLabels();
+    }
+
+    public void saveSettings() throws IOException
+    {
+        File file = new File(SettingsModel.settingsFilePath);
+        if(!file.exists())
+        {
+            file.createNewFile();
+        }
+        ObjectOutputStream outputStream =
+                new ObjectOutputStream(new FileOutputStream(file));
+
+        outputStream.writeObject(this);
+    }
+
+    public static SettingsModel initSettingsModel(SettingsView settingsView) throws IOException, ClassNotFoundException
+    {
+        ObjectInputStream inputStream =
+                new ObjectInputStream(new FileInputStream(SettingsModel.settingsFilePath));
+
+        SettingsModel settingsModel = (SettingsModel) inputStream.readObject();
+        settingsModel.settingsView =settingsView;
+        settingsModel.initView();
+
+        return settingsModel;
     }
 
 

@@ -11,12 +11,14 @@ import group18.screens.DailyView;
 import group18.screens.SettingsView;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Application {
     private HomeView home;
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
+    public static String location;
 
     private SettingsModel settingsModel;
 
@@ -68,7 +70,21 @@ public class Application {
         hourly.main.setSize(360, 640);
 
         settings = new SettingsView();
-        settingsModel = new SettingsModel(settings);
+//        settingsModel = new SettingsModel(settings);
+        try
+        {
+            settingsModel = SettingsModel.initSettingsModel(settings);
+            System.out.println("COLD: " + settingsModel.getColdThreshold());
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            settingsModel = new SettingsModel(settings);
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+            settingsModel = new SettingsModel(settings);
+        }
+
 
         settings.main.setVisible(false);
         settings.main.setSize(360, 640);
