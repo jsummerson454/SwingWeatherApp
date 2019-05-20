@@ -2,8 +2,16 @@ package group18.controllers;
 
 import group18.Main;
 import group18.api.WeatherAPI;
+import group18.backend.Day;
 import group18.models.DailyModel;
 import group18.screens.DailyView;
+import group18.screens.DayPanel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class DailyController {
     private DailyView view;
@@ -16,7 +24,7 @@ public class DailyController {
         {
             Main.app.setViewSettings();
         });
-        view.addDailyForecast(model.getDayList());
+        addDailyForecast(model.getDayList());
 
     }
 
@@ -25,6 +33,47 @@ public class DailyController {
     {
         model = new DailyModel();
         model.loadDailyForecast();
+    }
+
+    public void addDailyForecast(List<Day> dayList)
+    {
+        GridBagLayout layout = new GridBagLayout();
+        view.dayListPanel.setLayout(layout);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = 1;
+        int y = 0;
+
+
+        for (Day day : dayList)
+        {
+            DayPanel dayPanel = new DayPanel();
+            constraints.gridy = y++;
+            dayPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
+            view.dayListPanel.add(dayPanel.main, constraints);
+            dayPanel.main.addMouseListener(new MouseAdapter()
+            {
+                @Override
+                public void mouseClicked(MouseEvent e)
+                {
+                    super.mouseClicked(e);
+
+//                    TODO: OPEN THE Hourly Screen
+                    System.out.println("Opening for day: " + day.getDayOfMonth());
+
+                }
+            });
+
+//            TODO
+//            dayPanel.lbCallendarIcon.setIcon();
+//            dayPanel.lbWeatherIcon.setIcon();
+            dayPanel.lbDate.setText(day.getDayOfMonth() + " " + day.getDayOfWeek());
+            dayPanel.lbDegrees.setText("" + (day.getMaxTemperature() + day.getMinTemperature()) / 2);
+
+            dayPanel.main.setVisible(true);
+
+
+        }
     }
 
 }

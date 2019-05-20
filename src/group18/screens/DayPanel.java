@@ -1,5 +1,7 @@
 package group18.screens;
 
+import group18.backend.Day;
+
 import javax.swing.*;
 import java.awt.*;
 
