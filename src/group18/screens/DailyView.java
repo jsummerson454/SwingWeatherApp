@@ -121,7 +121,6 @@ public class DailyView
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.VERTICAL;
         panel4.add(spacer3, gbc);
         suggestButton = new JButton();
