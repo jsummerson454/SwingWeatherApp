@@ -17,6 +17,9 @@ public class Application {
     private HourlyView hourly;
     private SettingsView settings;
     public static String location;
+    private HomeController homeController;
+    private DailyController dailyController;
+    private HourlyController hourlyController;
 
     // Keeps a stack of screens traversed through
     private LinkedList<Screen> previousScreen = new LinkedList<>();
@@ -24,6 +27,24 @@ public class Application {
     private SettingsModel settingsModel;
 
     private JFrame window;
+
+    public void updateTemperatureLabels()
+    {
+        if(null != homeController)
+        {
+            homeController.updateTemperatureLabels();
+        }
+
+        if(null != dailyController)
+        {
+            dailyController.updateTemperatureLabels();
+        }
+
+        if(null != hourlyController)
+        {
+            hourlyController.updateTemperatureLabels();
+        }
+    }
 
     public static ImageIcon getWeatherIcon(WeatherIconType w) {
         // Gets the corresponding weather icon based on type entered
@@ -151,9 +172,9 @@ public class Application {
 
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-        HomeController homeController = new HomeController(homeModel);
-        DailyController dailyController = new DailyController(settingsModel,daily);
-        HourlyController hourlyController = new HourlyController(settingsModel,hourly);
+        homeController = new HomeController(settingsModel,homeModel);
+        dailyController = new DailyController(settingsModel,daily);
+        hourlyController = new HourlyController(settingsModel,hourly);
 
 
         //add screens to window

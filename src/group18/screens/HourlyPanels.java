@@ -1,5 +1,7 @@
 package group18.screens;
 
+import group18.backend.Hour;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,6 +13,18 @@ public class HourlyPanels {
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
+
+    private Hour hour;
+    public Hour getHour()
+    {
+        return hour;
+    }
+
+    public HourlyPanels(Hour hour)
+    {
+        this.hour = hour;
+    }
+
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
