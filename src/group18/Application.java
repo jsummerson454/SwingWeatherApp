@@ -24,6 +24,15 @@ public class Application {
 
     private JFrame window;
 
+    public String getInUnits (double val) {
+        // Returns a string of the temperature
+        // in the correct units
+        if (settingsModel.isCelsius()) {
+            return String.format("%.2f℃", val);
+        }
+        return String.format("%.2f℉", val*1.8 + 32.0);
+    }
+
     public ImageIcon getWeatherIcon(WeatherIconType w) {
         String s = "resources/";
         switch (w) {
