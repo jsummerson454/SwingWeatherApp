@@ -5,6 +5,7 @@ import group18.backend.Day;
 import group18.backend.Hour;
 import group18.backend.Screen;
 import group18.models.HourlyModel;
+import group18.models.SettingsModel;
 import group18.screens.DailyView;
 import group18.screens.DayPanel;
 import group18.screens.HourlyPanels;
@@ -22,10 +23,13 @@ import java.util.List;
 public class HourlyController {
     private HourlyView view;
     private HourlyModel model;
+    private SettingsModel settingsModel;
 
-    /*
-    public HourlyController(HourlyView view) {
+
+    public HourlyController(SettingsModel settingsModel, HourlyView view) {
         this.view = view;
+        this.settingsModel = settingsModel;
+
         initModel();
         view.addSettingsButtonListener(a ->
         {
@@ -83,13 +87,12 @@ public class HourlyController {
 //            hourPanel.lbCallendarIcon.setIcon();
 //            hourPanel.lbWeatherIcon.setIcon();
             hourPanel.lbDate.setText(Integer.toString(hour.getHour()));
-            hourPanel.lbDegrees.setText("" + (hour.getTemperature()));
-
+            hourPanel.lbDegrees.setText(settingsModel.getInUnits(hour.getTemperature()));
             hourPanel.main.setVisible(true);
 
 
         }
     }
-    */
+
 
 }
