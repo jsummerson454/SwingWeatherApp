@@ -1,6 +1,7 @@
 package group18;
 
 import group18.backend.Screen;
+import group18.backend.WeatherIconType;
 import group18.controllers.*;
 import group18.models.HomeModel;
 import group18.models.SettingsModel;
@@ -22,6 +23,37 @@ public class Application {
     private SettingsModel settingsModel;
 
     private JFrame window;
+
+    public ImageIcon getWeatherIcon(WeatherIconType w) {
+        String s = "resources/";
+        switch (w) {
+            case Cloudy:
+                s += "cloudy.png";
+                break;
+            case Fog:
+                s += "fog.png";
+                break;
+            case Partly_Cloudy:
+                s += "partly-cloudy-day.png";
+                break;
+            case Snow:
+                s += "snow.png";
+                break;
+            case Rain:
+                s += "rain.png";
+                break;
+            case Wind:
+                s += "wind.png";
+                break;
+            case Sleet:
+                s += "sleet.png";
+                break;
+            default:
+                s += "clear-day.png";
+                break;
+        }
+        return new ImageIcon(s);
+    }
 
     public void setViewHome() {
         daily.main.setVisible(false);
