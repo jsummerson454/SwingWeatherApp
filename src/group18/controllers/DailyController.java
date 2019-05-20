@@ -48,7 +48,6 @@ public class DailyController {
     {
         model = new DailyModel();
         model.loadDailyForecast();
-        System.out.println("Hi");
     }
 
     public void addDailyForecast(List<Day> dayList)
