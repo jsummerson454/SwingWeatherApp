@@ -1,6 +1,7 @@
 package group18;
 
 import group18.backend.Screen;
+import group18.backend.WeatherIconType;
 import group18.controllers.*;
 import group18.models.HomeModel;
 import group18.models.SettingsModel;
@@ -17,11 +18,44 @@ public class Application {
     private SettingsView settings;
     public static String location;
 
-    public LinkedList<Screen> previousScreen = new LinkedList<>();
+    // Keeps a stack of screens traversed through
+    private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
 
     private JFrame window;
+
+    public ImageIcon getWeatherIcon(WeatherIconType w) {
+        // Gets the corresponding weather icon based on type entered
+        String s = "resources/";
+        switch (w) {
+            case Cloudy:
+                s += "cloudy.png";
+                break;
+            case Fog:
+                s += "fog.png";
+                break;
+            case Partly_Cloudy:
+                s += "partly-cloudy-day.png";
+                break;
+            case Snow:
+                s += "snow.png";
+                break;
+            case Rain:
+                s += "rain.png";
+                break;
+            case Wind:
+                s += "wind.png";
+                break;
+            case Sleet:
+                s += "sleet.png";
+                break;
+            default:
+                s += "clear-day.png";
+                break;
+        }
+        return new ImageIcon(s);
+    }
 
     public void setViewHome() {
         daily.main.setVisible(false);
@@ -52,10 +86,12 @@ public class Application {
     }
 
     public void addAScreen(Screen s) {
+        // Adds to the screen traversal stack
         previousScreen.add(s);
     }
 
     public void backAScreen() {
+        // Navigates back to the last screen
         Screen s = previousScreen.removeLast();
         switch (s) {
             case home:
@@ -73,8 +109,7 @@ public class Application {
         }
     }
 
-    public SettingsModel getSettingsModel()
-    {
+    public SettingsModel getSettingsModel() {
         return settingsModel;
     }
 
@@ -99,7 +134,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(settingsModel, home);
+        HomeModel homeModel = new HomeModel(settingsModel,home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
@@ -117,8 +152,8 @@ public class Application {
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(homeModel);
-        DailyController dailyController = new DailyController(daily);
-        //HourlyController hourlyController = new HourlyController(hourly);
+        DailyController dailyController = new DailyController(settingsModel,daily);
+        HourlyController hourlyController = new HourlyController(settingsModel,hourly);
 
 
         //add screens to window

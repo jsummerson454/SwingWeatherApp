@@ -5,6 +5,7 @@ import group18.api.WeatherAPI;
 import group18.backend.Day;
 import group18.backend.Screen;
 import group18.models.DailyModel;
+import group18.models.SettingsModel;
 import group18.screens.DailyView;
 import group18.screens.DayPanel;
 
@@ -19,11 +20,14 @@ import java.util.List;
 public class DailyController {
     private DailyView view;
     private DailyModel model;
+    private SettingsModel settingsModel;
 
-    public DailyController(DailyView view) {
+    public DailyController(SettingsModel settingsModel, DailyView view) {
         this.view = view;
+        this.settingsModel = settingsModel;
+
         initModel();
-        view.addDailyButtonListener(a ->
+        view.addSettingsButtonListener(a ->
         {
             Main.app.addAScreen(Screen.daily);
             Main.app.setViewSettings();
@@ -35,6 +39,10 @@ public class DailyController {
                 Main.app.backAScreen();
             }
         });
+
+
+
+
         addDailyForecast(model.getDayList());
 
     }
@@ -79,7 +87,7 @@ public class DailyController {
 //            dayPanel.lbCallendarIcon.setIcon();
 //            dayPanel.lbWeatherIcon.setIcon();
             dayPanel.lbDate.setText(day.getDayOfMonth() + " " + day.getDayOfWeek());
-            dayPanel.lbDegrees.setText("" + (day.getMaxTemperature() + day.getMinTemperature()) / 2);
+            dayPanel.lbDegrees.setText(settingsModel.getInUnits((day.getMaxTemperature() + day.getMinTemperature()) / 2.0));
 
             dayPanel.main.setVisible(true);
 

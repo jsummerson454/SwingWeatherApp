@@ -23,7 +23,7 @@ public class HomeView {
     public JButton settings;
 
     private JLabel titleLabel;
-    private JLabel imageIcon;
+    public JLabel imageIcon;
 
     private void createUIComponents() {
 
@@ -69,6 +69,7 @@ public class HomeView {
         bottomButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
         bottomButtons.setBackground(new Color(-8928782));
         main.add(bottomButtons, BorderLayout.SOUTH);
+        bottomButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         weekly = new JButton();
         weekly.setBackground(new Color(-1842305));
         weekly.setText("Weekly");
@@ -81,6 +82,7 @@ public class HomeView {
         topButtons.setLayout(new BorderLayout(0, 0));
         topButtons.setBackground(new Color(-8928782));
         main.add(topButtons, BorderLayout.NORTH);
+        topButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         titleLabel = new JLabel();
         Font titleLabelFont = this.$$$getFont$$$(null, -1, 28, titleLabel.getFont());
         if (titleLabelFont != null) titleLabel.setFont(titleLabelFont);
@@ -136,6 +138,7 @@ public class HomeView {
         gbc.fill = GridBagConstraints.BOTH;
         temperatureAndImage.add(imagePanel, gbc);
         imageIcon = new JLabel();
+        imageIcon.setHorizontalAlignment(4);
         imageIcon.setText("");
         imagePanel.add(imageIcon, BorderLayout.CENTER);
     }

@@ -92,15 +92,29 @@ public class SettingsModel implements Serializable
     public SettingsModel(SettingsView settingsView) {
         // Puts the slider in the correct position and updates labels
         this.settingsView = settingsView;
+        initView();
+    }
+
+    public void initView() {
+        // Initalises the labels, sliders and radio buttons on the screen
+        updateAboveBelowLabels();
         updateAboveBelowLabels();
         settingsView.coldSlider.setValue((int)(coldThreshold-coldStart));
         settingsView.hotSlider.setValue((int)(hotThreshold-hotStart));
-    }
+        if (celsius) {
+            settingsView.celciusRadioButton.setSelected(true);
+        }
+        else {
+            settingsView.fahrenheitRadioButton.setSelected(true);
+        }
 
-    // initializing the view on start
-    public void initView()
-    {
-        updateAboveBelowLabels();
+        if (notifications) {
+            settingsView.onRadioButton.setSelected(true);
+        }
+        else {
+            settingsView.offRadioButton.setSelected(true);
+        }
+
     }
 
     public void saveSettings() throws IOException

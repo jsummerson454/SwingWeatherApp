@@ -26,13 +26,14 @@
               <component id="493c4" class="javax.swing.JLabel" binding="lbLocation">
                 <constraints border-constraint="Center"/>
                 <properties>
+                  <font size="28"/>
                   <text value="Location"/>
                 </properties>
               </component>
               <component id="7cc3a" class="javax.swing.JButton" binding="settingsButton">
                 <constraints border-constraint="East"/>
                 <properties>
-                  <text value="Settings"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
@@ -94,7 +95,7 @@
               </hspacer>
               <vspacer id="353ad">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
               </vspacer>

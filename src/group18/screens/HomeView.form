@@ -12,7 +12,7 @@
         <properties>
           <background color="-8928782"/>
         </properties>
-        <border type="none"/>
+        <border type="line"/>
         <children>
           <component id="8d842" class="javax.swing.JButton" binding="weekly">
             <constraints/>
@@ -35,7 +35,7 @@
         <properties>
           <background color="-8928782"/>
         </properties>
-        <border type="none"/>
+        <border type="line"/>
         <children>
           <component id="b83a2" class="javax.swing.JLabel" binding="titleLabel">
             <constraints border-constraint="West"/>
@@ -105,6 +105,7 @@
                   <component id="56f98" class="javax.swing.JLabel" binding="imageIcon">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <horizontalAlignment value="4"/>
                       <text value=""/>
                     </properties>
                   </component>
