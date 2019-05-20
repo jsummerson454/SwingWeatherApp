@@ -134,7 +134,7 @@ public class Application {
         return settingsModel;
     }
 
-    public Application() {
+    public void init() {
         //initialise models
 
         //initialize screens (with required models as parameters)
