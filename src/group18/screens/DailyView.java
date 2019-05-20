@@ -7,8 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class DailyView
-{
+public class DailyView {
     private JLabel lbLocation;
     private JButton settingsButton;
     private JScrollPane spDayList;
@@ -17,11 +16,17 @@ public class DailyView
     public JPanel main;
     public JPanel dayListPanel;
 
-    public void addSettingsButtonListener(ActionListener mal)
-    {
+    public void addSettingsButtonListener(ActionListener mal) {
         settingsButton.addActionListener(mal);
     }
 
+    public DailyView() {
+        Dimension buttonSize = new Dimension(50, 50);
+        settingsButton.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
+        settingsButton.setMaximumSize(buttonSize);
+        settingsButton.setMinimumSize(buttonSize);
+        settingsButton.setPreferredSize(buttonSize);
+    }
 
 
     {
@@ -38,8 +43,7 @@ public class DailyView
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
         final JPanel panel1 = new JPanel();
@@ -62,10 +66,12 @@ public class DailyView
         gbc.fill = GridBagConstraints.BOTH;
         panel1.add(panel2, gbc);
         lbLocation = new JLabel();
+        Font lbLocationFont = this.$$$getFont$$$(null, -1, 28, lbLocation.getFont());
+        if (lbLocationFont != null) lbLocation.setFont(lbLocationFont);
         lbLocation.setText("Location");
         panel2.add(lbLocation, BorderLayout.CENTER);
         settingsButton = new JButton();
-        settingsButton.setText("Settings");
+        settingsButton.setText("");
         panel2.add(settingsButton, BorderLayout.EAST);
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridBagLayout());
@@ -136,8 +142,26 @@ public class DailyView
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        return new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
         return main;
     }
 }

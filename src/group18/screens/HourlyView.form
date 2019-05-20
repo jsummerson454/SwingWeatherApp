@@ -28,6 +28,7 @@
             </constraints>
             <properties>
               <alignmentX value="0.0"/>
+              <font size="28"/>
               <text value="Location X"/>
             </properties>
           </component>
@@ -43,7 +44,7 @@
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Settings"/>
+              <text value=""/>
             </properties>
           </component>
           <scrollpane id="39372" binding="spHourList">
