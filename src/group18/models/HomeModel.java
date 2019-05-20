@@ -12,7 +12,9 @@ import java.util.Calendar;
 
 public class HomeModel {
     public HomeView homeView;
+    private SettingsModel settingsModel;
 
+    private double averageTemp;
 
     public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
@@ -21,13 +23,17 @@ public class HomeModel {
         Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
 
         // Setting up the average temperature
-        double averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
+        averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
+        homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
+        refreshLabels();
+    }
+
+    public void refreshLabels () {
         // Using function in to convert to string
         String tempStr = settingsModel.getInUnits(averageTemp);
         homeView.actualTemperature.setText(tempStr);
         // Our API does not provide this so we are just setting it to the current
         // temperature for now
         homeView.feelsLike.setText("Feels like " + tempStr);
-        homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
     }
 }
