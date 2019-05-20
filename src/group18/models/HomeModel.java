@@ -18,7 +18,6 @@ public class HomeModel {
 
     public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
-        this.settingsModel = settingsModel;
         Calendar thisInstant = Calendar.getInstance();
 
         Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
