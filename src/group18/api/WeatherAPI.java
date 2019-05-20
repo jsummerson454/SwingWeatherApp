@@ -133,7 +133,6 @@ public class WeatherAPI
 
     private static List<Hour> getHourlyForecastAPICall()
     {
-        List<Hour> hours = new ArrayList<>();
         List<Hour> hourlyForecast = new ArrayList<>();
         FIOHourly hourly = new FIOHourly(fio);
 
@@ -158,7 +157,7 @@ public class WeatherAPI
             }
         }
 
-        return hours;
+        return hourlyForecast;
     }
 
 
