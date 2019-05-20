@@ -6,7 +6,7 @@ import java.io.*;
 
 public class SettingsModel implements Serializable
 {
-    public static String settingsFilePath = "data/settings";
+    public static String settingsFilePath = "data"+ System.getProperty("file.separator") + "settings";
     private transient SettingsView settingsView;
 
     private boolean celsius = true;

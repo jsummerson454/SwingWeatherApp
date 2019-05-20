@@ -74,7 +74,6 @@ public class Application {
         try
         {
             settingsModel = SettingsModel.initSettingsModel(settings);
-            System.out.println("COLD: " + settingsModel.getColdThreshold());
         } catch (IOException e)
         {
             e.printStackTrace();
