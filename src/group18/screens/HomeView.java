@@ -13,7 +13,7 @@ public class HomeView {
 
     private JPanel warningsAndPlans;
     private JPanel temperatureAndImage;
-    private JPanel image;
+    private JPanel imagePanel;
 
     private JLabel actualTemperature;
     private JLabel feelsLike;
@@ -24,6 +24,7 @@ public class HomeView {
     private JButton hourly;
     private JButton settings;
     private JLabel titleLabel;
+    private JLabel imageIcon;
 
     private void createUIComponents() {
 
@@ -36,6 +37,9 @@ public class HomeView {
         settings.setMaximumSize(buttonSize);
         settings.setMinimumSize(buttonSize);
         settings.setPreferredSize(buttonSize);
+
+        imageIcon.setIcon(new ImageIcon("resources/clear-day.png"));
+
     }
 
     public static void main(String[] args) {
@@ -120,9 +124,9 @@ public class HomeView {
         gbc.weighty = 0.5;
         gbc.anchor = GridBagConstraints.NORTHWEST;
         temperatureAndImage.add(feelsLike, gbc);
-        image = new JPanel();
-        image.setLayout(new BorderLayout(0, 0));
-        image.setBackground(new Color(-4395790));
+        imagePanel = new JPanel();
+        imagePanel.setLayout(new BorderLayout(0, 0));
+        imagePanel.setBackground(new Color(-4395790));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
@@ -130,7 +134,10 @@ public class HomeView {
         gbc.weightx = 0.75;
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.BOTH;
-        temperatureAndImage.add(image, gbc);
+        temperatureAndImage.add(imagePanel, gbc);
+        imageIcon = new JLabel();
+        imageIcon.setText("");
+        imagePanel.add(imageIcon, BorderLayout.CENTER);
     }
 
     /**
