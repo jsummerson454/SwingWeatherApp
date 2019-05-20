@@ -1,5 +1,6 @@
 package group18.models;
 
+import group18.Application;
 import group18.Main;
 import group18.api.WeatherAPI;
 import group18.backend.Day;
@@ -27,6 +28,6 @@ public class HomeModel {
         // Our API does not provide this so we are just setting it to the current
         // temperature for now
         homeView.feelsLike.setText("Feels like " + tempStr);
-        homeView.imageIcon.setIcon(Main.app.getWeatherIcon(today.getWeatherIconType()));
+        homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
     }
 }
