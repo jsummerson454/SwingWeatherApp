@@ -83,8 +83,10 @@ public class HourlyController {
 //            TODO
 //            hourPanel.lbCallendarIcon.setIcon();
 //            hourPanel.lbWeatherIcon.setIcon();
-            hourPanel.lbDate.setText("Time: " + Integer.toString(hour.getHour()));
-            hourPanel.lbDegrees.setText(settingsModel.getInUnits(hour.getTemperature()));
+            hourPanel.lbDate.setText("Time: \n" + Integer.toString(hour.getHour()) + ":00");
+            hourPanel.lbHumidity.setText("Humidity: \n" + Double.toString(hour.getHumidity()) + "%");
+            hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hour.getApparentTemperature()));
+            hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hour.getTemperature()));
             hourPanel.main.setVisible(true);
 
 
