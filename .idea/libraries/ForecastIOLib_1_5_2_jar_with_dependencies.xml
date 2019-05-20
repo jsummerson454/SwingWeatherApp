@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ForecastIOLib-1.5.2-jar-with-dependencies">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ForecastIOLib-1.5.2-jar-with-dependencies.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/lib/ForecastIOLib-1.5.2-jar-with-dependencies.jar!/" recursive="false" />
+  </library>
+</component>

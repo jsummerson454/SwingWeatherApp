@@ -45,8 +45,6 @@ public class SettingsView {
     private JLabel notificationIcon;
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
-
     }
 
     public SettingsView() {

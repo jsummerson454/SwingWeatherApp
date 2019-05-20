@@ -5,7 +5,7 @@ import group18.controllers.HomeController;
 import group18.controllers.HourlyController;
 import group18.controllers.SettingsController;
 import group18.models.SettingsModel;
-import group18.screens.HomeView;
+import group18.screens.HomeViewOld;
 import group18.screens.HourlyView;
 import group18.screens.DailyView;
 import group18.screens.SettingsView;
@@ -13,7 +13,7 @@ import group18.screens.SettingsView;
 import javax.swing.*;
 
 public class Application {
-    private HomeView home;
+    private HomeViewOld home;
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
@@ -55,7 +55,7 @@ public class Application {
         //initialise models
 
         //initialize screens (with required models as parameters)
-        home = new HomeView();
+        home = new HomeViewOld();
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 

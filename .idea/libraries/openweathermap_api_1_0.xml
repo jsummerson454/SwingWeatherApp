@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="openweathermap-api-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/openweathermap-api-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

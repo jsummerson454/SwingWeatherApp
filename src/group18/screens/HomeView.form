@@ -1,44 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="group18.screens.HomeView">
-  <grid id="27dc6" binding="main" layout-manager="GridBagLayout">
+  <grid id="27dc6" binding="homePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="174" y="198" width="249" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <hspacer id="c015">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </hspacer>
-      <vspacer id="1d563">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-      </vspacer>
-      <component id="e320a" class="javax.swing.JButton" binding="testGotoDailyButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
+      <grid id="30eed" binding="bottomButtons" layout-manager="FlowLayout" hgap="20" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
         <properties>
-          <background color="-13056754"/>
-          <foreground color="-4500416"/>
-          <text value="test - goto daily"/>
+          <background color="-8928782"/>
         </properties>
-      </component>
-      <component id="d8241" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
+        <border type="none"/>
+        <children>
+          <component id="8d842" class="javax.swing.JButton" binding="weekly">
+            <constraints/>
+            <properties>
+              <background color="-1842305"/>
+              <text value="Weekly"/>
+            </properties>
+          </component>
+          <component id="19e0e" class="javax.swing.JButton" binding="hourly">
+            <constraints/>
+            <properties>
+              <background color="-1842305"/>
+              <text value="Hourly"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="6a7ec" binding="topButtons" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
         <properties>
-          <text value="Some stuff"/>
+          <background color="-8928782"/>
         </properties>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="b83a2" class="javax.swing.JLabel" binding="titleLabel">
+            <constraints border-constraint="West"/>
+            <properties>
+              <font size="28"/>
+              <text value="Home"/>
+            </properties>
+          </component>
+          <component id="bcf26" class="javax.swing.JButton" binding="settings">
+            <constraints border-constraint="East"/>
+            <properties>
+              <background color="-8928782"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="b2d86" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="4436a" binding="warningsAndPlans" layout-manager="GridBagLayout">
+            <constraints border-constraint="South"/>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="36691" binding="temperatureAndImage" layout-manager="GridBagLayout">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="-4395790"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="affcc" class="javax.swing.JLabel" binding="actualTemperature">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.25" weighty="0.5"/>
+                </constraints>
+                <properties>
+                  <font size="28"/>
+                  <text value="T*C"/>
+                </properties>
+              </component>
+              <component id="9efd4" class="javax.swing.JLabel" binding="feelsLike">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.25" weighty="0.5"/>
+                </constraints>
+                <properties>
+                  <font size="18"/>
+                  <text value="Feels like T*C"/>
+                  <verticalAlignment value="0"/>
+                </properties>
+              </component>
+              <grid id="bbaaf" binding="image" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.75" weighty="0.5"/>
+                </constraints>
+                <properties>
+                  <background color="-4395790"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

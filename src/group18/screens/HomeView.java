@@ -1,15 +1,47 @@
 package group18.screens;
 
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class HomeView {
-    private JButton testGotoDailyButton;
-    public JPanel main;
+    public JPanel homePanel;
 
-    public void addDailyButtonListener(ActionListener mal) {
-        testGotoDailyButton.addActionListener(mal);
+    private JPanel topButtons;
+    private JPanel bottomButtons;
+    private JPanel mainPanel;
+
+    private JPanel warningsAndPlans;
+    private JPanel temperatureAndImage;
+    private JPanel image;
+
+    private JLabel actualTemperature;
+    private JLabel feelsLike;
+
+    private JPanel weather;
+
+    private JButton weekly;
+    private JButton hourly;
+    private JButton settings;
+    private JLabel titleLabel;
+
+    private void createUIComponents() {
+
+
+    }
+
+    public HomeView() {
+        Dimension buttonSize = new Dimension(50, 50);
+        settings.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
+        settings.setMaximumSize(buttonSize);
+        settings.setMinimumSize(buttonSize);
+        settings.setPreferredSize(buttonSize);
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        frame.setContentPane(new HomeView().homePanel);
+        frame.setVisible(true);
     }
 
     {
@@ -27,42 +59,103 @@ public class HomeView {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        main = new JPanel();
-        main.setLayout(new GridBagLayout());
-        final JPanel spacer1 = new JPanel();
+        homePanel = new JPanel();
+        homePanel.setLayout(new BorderLayout(0, 0));
+        bottomButtons = new JPanel();
+        bottomButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
+        bottomButtons.setBackground(new Color(-8928782));
+        homePanel.add(bottomButtons, BorderLayout.SOUTH);
+        weekly = new JButton();
+        weekly.setBackground(new Color(-1842305));
+        weekly.setText("Weekly");
+        bottomButtons.add(weekly);
+        hourly = new JButton();
+        hourly.setBackground(new Color(-1842305));
+        hourly.setText("Hourly");
+        bottomButtons.add(hourly);
+        topButtons = new JPanel();
+        topButtons.setLayout(new BorderLayout(0, 0));
+        topButtons.setBackground(new Color(-8928782));
+        homePanel.add(topButtons, BorderLayout.NORTH);
+        titleLabel = new JLabel();
+        Font titleLabelFont = this.$$$getFont$$$(null, -1, 28, titleLabel.getFont());
+        if (titleLabelFont != null) titleLabel.setFont(titleLabelFont);
+        titleLabel.setText("Home");
+        topButtons.add(titleLabel, BorderLayout.WEST);
+        settings = new JButton();
+        settings.setBackground(new Color(-8928782));
+        settings.setText("");
+        topButtons.add(settings, BorderLayout.EAST);
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout(0, 0));
+        homePanel.add(mainPanel, BorderLayout.CENTER);
+        warningsAndPlans = new JPanel();
+        warningsAndPlans.setLayout(new GridBagLayout());
+        mainPanel.add(warningsAndPlans, BorderLayout.SOUTH);
+        temperatureAndImage = new JPanel();
+        temperatureAndImage.setLayout(new GridBagLayout());
+        temperatureAndImage.setBackground(new Color(-4395790));
+        mainPanel.add(temperatureAndImage, BorderLayout.CENTER);
+        actualTemperature = new JLabel();
+        Font actualTemperatureFont = this.$$$getFont$$$(null, -1, 28, actualTemperature.getFont());
+        if (actualTemperatureFont != null) actualTemperature.setFont(actualTemperatureFont);
+        actualTemperature.setText("T*C");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        main.add(spacer1, gbc);
-        final JPanel spacer2 = new JPanel();
+        gbc.weightx = 0.25;
+        gbc.weighty = 0.5;
+        gbc.anchor = GridBagConstraints.SOUTHWEST;
+        temperatureAndImage.add(actualTemperature, gbc);
+        feelsLike = new JLabel();
+        Font feelsLikeFont = this.$$$getFont$$$(null, -1, 18, feelsLike.getFont());
+        if (feelsLikeFont != null) feelsLike.setFont(feelsLikeFont);
+        feelsLike.setText("Feels like T*C");
+        feelsLike.setVerticalAlignment(0);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        main.add(spacer2, gbc);
-        testGotoDailyButton = new JButton();
-        testGotoDailyButton.setBackground(new Color(-13056754));
-        testGotoDailyButton.setForeground(new Color(-4500416));
-        testGotoDailyButton.setText("test - goto daily");
+        gbc.weightx = 0.25;
+        gbc.weighty = 0.5;
+        gbc.anchor = GridBagConstraints.NORTHWEST;
+        temperatureAndImage.add(feelsLike, gbc);
+        image = new JPanel();
+        image.setLayout(new BorderLayout(0, 0));
+        image.setBackground(new Color(-4395790));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        main.add(testGotoDailyButton, gbc);
-        final JLabel label1 = new JLabel();
-        label1.setText("Some stuff");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        main.add(label1, gbc);
+        gbc.gridy = 0;
+        gbc.gridheight = 2;
+        gbc.weightx = 0.75;
+        gbc.weighty = 0.5;
+        gbc.fill = GridBagConstraints.BOTH;
+        temperatureAndImage.add(image, gbc);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        return new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
     }
 
     /**
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return main;
+        return homePanel;
     }
 }
