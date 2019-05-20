@@ -10,7 +10,7 @@ public class HomeModel {
     public HomeView homeView;
 
 
-    public HomeModel (HomeView homeView) {
+    public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
         // Add Day today as a parameter
 
@@ -18,7 +18,7 @@ public class HomeModel {
         // Setting up the average temperature
         double averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
         // Using function in to convert to string
-        String tempStr = Main.app.getInUnits(averageTemp);
+        String tempStr = settingsModel.getInUnits(averageTemp);
         homeView.actualTemperature.setText(tempStr);
         // Our API does not provide this so we are just setting it to the current
         // temperature for now

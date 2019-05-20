@@ -25,15 +25,6 @@ public class Application {
 
     private JFrame window;
 
-    public String getInUnits (double val) {
-        // Returns a string of the temperature
-        // in the correct units
-        if (settingsModel.isCelsius()) {
-            return String.format("%.2f℃", val);
-        }
-        return String.format("%.2f℉", val*1.8 + 32.0);
-    }
-
     public ImageIcon getWeatherIcon(WeatherIconType w) {
         // Gets the corresponding weather icon based on type entered
         String s = "resources/";
@@ -143,7 +134,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(home);
+        HomeModel homeModel = new HomeModel(settingsModel,home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
@@ -161,7 +152,7 @@ public class Application {
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(homeModel);
-        DailyController dailyController = new DailyController(daily);
+        DailyController dailyController = new DailyController(settingsModel,daily);
         //HourlyController hourlyController = new HourlyController(hourly);
 
 
