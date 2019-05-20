@@ -1,11 +1,14 @@
 package group18;
 
+import group18.backend.Screen;
 import group18.controllers.*;
 import group18.models.HomeModel;
 import group18.models.SettingsModel;
 import group18.screens.*;
 
 import javax.swing.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Application {
     private HomeView home;
@@ -13,6 +16,8 @@ public class Application {
     private HourlyView hourly;
     private SettingsView settings;
     public static String location;
+
+    public LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
 
@@ -44,6 +49,24 @@ public class Application {
         hourly.main.setVisible(false);
         home.main.setVisible(false);
         settings.main.setVisible(true);
+    }
+
+    public void backAScreen() {
+        Screen s = previousScreen.remove();
+        switch (s) {
+            case home:
+                setViewHome();
+                break;
+            case daily:
+                setViewDaily();
+                break;
+            case hourly:
+                setViewHourly();
+                break;
+            case settings:
+                setViewSettings();
+                break;
+        }
     }
 
     public SettingsModel getSettingsModel()
@@ -91,7 +114,7 @@ public class Application {
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(homeModel);
         DailyController dailyController = new DailyController(daily);
-        HourlyController hourlyController = new HourlyController(hourly);
+        //HourlyController hourlyController = new HourlyController(hourly);
 
 
         //add screens to window

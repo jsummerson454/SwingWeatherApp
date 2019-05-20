@@ -24,7 +24,7 @@ public class SettingsController
         settingsView.backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Main.app.backAScreen();
             }
         });
 
