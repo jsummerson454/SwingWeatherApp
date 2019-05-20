@@ -61,7 +61,6 @@ public class WeatherAPI
     {
         List<Day> dailyForecast = new ArrayList<>();
 
-
         FIODaily daily = new FIODaily(fio);
         //In case there is no daily data available
         if (daily.days() > 0)

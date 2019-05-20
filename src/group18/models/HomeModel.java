@@ -1,10 +1,13 @@
 package group18.models;
 
 import group18.Main;
+import group18.api.WeatherAPI;
 import group18.backend.Day;
 import group18.screens.HomeView;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.Calendar;
 
 public class HomeModel {
     public HomeView homeView;
@@ -12,9 +15,10 @@ public class HomeModel {
 
     public HomeModel (SettingsModel settingsModel, HomeView homeView) {
         this.homeView = homeView;
-        // Add Day today as a parameter
+        Calendar thisInstant = Calendar.getInstance();
 
-        /*
+        Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
+
         // Setting up the average temperature
         double averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
         // Using function in to convert to string
@@ -24,6 +28,5 @@ public class HomeModel {
         // temperature for now
         homeView.feelsLike.setText("Feels like " + tempStr);
         homeView.imageIcon.setIcon(Main.app.getWeatherIcon(today.getWeatherIconType()));
-        */
     }
 }
