@@ -20,7 +20,7 @@ public class HourlyController {
     private HourlyView view;
     private HourlyModel model;
 
-
+    /*
     public HourlyController(HourlyView view) {
         this.view = view;
         initModel();
@@ -77,5 +77,6 @@ public class HourlyController {
 
         }
     }
+    */
 
 }
