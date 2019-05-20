@@ -99,8 +99,9 @@ public class Application {
 
 
         //add screens to window
-        window.add(settings.main);
+
         window = new JFrame();
+        window.add(settings.main);
         window.add(home.main);
         window.add(daily.main);
         window.add(hourly.main);
