@@ -1,19 +1,54 @@
 package group18.screens;
 
+import group18.backend.Day;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.List;
 
-public class DailyView {
+public class DailyView
+{
     private JLabel lbLocation;
     private JButton settingsButton;
     private JScrollPane spDayList;
     private JButton backButton;
     private JButton suggestButton;
     public JPanel main;
+    private JPanel dayListPanel;
 
-    public void addDailyButtonListener(ActionListener mal) {
+    public void addDailyButtonListener(ActionListener mal)
+    {
         settingsButton.addActionListener(mal);
+    }
+
+    public void addDailyForecast(List<Day> dayList)
+    {
+        GridBagLayout layout = new GridBagLayout();
+        dayListPanel.setLayout(layout);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = 1;
+        int y = 0;
+
+
+        for (Day day : dayList)
+        {
+            DayPanel dayPanel = new DayPanel();
+            constraints.gridy = y++;
+            dayPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
+            dayListPanel.add(dayPanel.main, constraints);
+
+//            TODO
+//            dayPanel.lbCallendarIcon.setIcon();
+//            dayPanel.lbWeatherIcon.setIcon();
+            dayPanel.lbDate.setText(day.getDayOfMonth() + " " + day.getDayOfWeek());
+            dayPanel.lbDegrees.setText("" + (day.getMaxTemperature() + day.getMinTemperature()) / 2);
+
+            dayPanel.main.setVisible(true);
+
+
+        }
     }
 
     {
@@ -30,7 +65,8 @@ public class DailyView {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
         final JPanel panel1 = new JPanel();
@@ -76,6 +112,9 @@ public class DailyView {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         panel3.add(spDayList, gbc);
+        dayListPanel = new JPanel();
+        dayListPanel.setLayout(new GridBagLayout());
+        spDayList.setViewportView(dayListPanel);
         final JPanel spacer1 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -125,7 +164,8 @@ public class DailyView {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return main;
     }
 }

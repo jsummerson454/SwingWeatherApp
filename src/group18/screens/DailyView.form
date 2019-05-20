@@ -52,7 +52,14 @@
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <grid id="c6ac6" binding="dayListPanel" layout-manager="GridBagLayout">
+                    <constraints/>
+                    <properties/>
+                    <border type="none"/>
+                    <children/>
+                  </grid>
+                </children>
               </scrollpane>
               <vspacer id="d3d41">
                 <constraints>
