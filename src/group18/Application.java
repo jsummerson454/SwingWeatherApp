@@ -159,7 +159,7 @@ public class Application {
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(homeModel);
         DailyController dailyController = new DailyController(daily);
-        //HourlyController hourlyController = new HourlyController(hourly);
+        HourlyController hourlyController = new HourlyController(hourly);
 
 
         //add screens to window

@@ -134,7 +134,7 @@ public class WeatherAPI
     private static List<Hour> getHourlyForecastAPICall()
     {
         List<Hour> hours = new ArrayList<>();
-
+        List<Hour> hourlyForecast = new ArrayList<>();
         FIOHourly hourly = new FIOHourly(fio);
 
         //In case there is no daily data available

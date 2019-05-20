@@ -14,7 +14,7 @@ public class HourlyModel {
     }
 
     public void loadHourlyForecast(){
-        hourList = WeatherAPI.getHourlyForecast();
+        hourList = WeatherAPI.getAllHoursForecast();
     }
 
 
