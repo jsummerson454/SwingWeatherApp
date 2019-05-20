@@ -90,6 +90,20 @@ public class WeatherAPI
         return dailyForecast;
     }
 
+    public static Day getForecastForADay(int dayOfMonth)
+    {
+        List<Day> days = getDailyForecast();
+
+        for(Day day: days)
+        {
+            if(day.getDayOfMonth() == dayOfMonth)
+            {
+                return day;
+            }
+        }
+        return null;
+    }
+
     public static List<Hour> getHourlyForecastForDayOfMonth(int dayOfMonth)
     {
         List<Hour> hours = getAllHoursForecast();
