@@ -7,8 +7,8 @@ public class Day
 {
     private WeatherIconType weatherIconType;
     private String summary;
-    private int maxTemperature;
-    private int minTemperature;
+    private double maxTemperature;
+    private double minTemperature;
     private int dayOfMonth;
     private String dayOfWeek;
     private List<Plan> planList = new ArrayList();
@@ -33,22 +33,22 @@ public class Day
         this.summary = summary;
     }
 
-    public int getMaxTemperature()
+    public double getMaxTemperature()
     {
         return maxTemperature;
     }
 
-    public void setMaxTemperature(int maxTemperature)
+    public void setMaxTemperature(double maxTemperature)
     {
         this.maxTemperature = maxTemperature;
     }
 
-    public int getMinTemperature()
+    public double getMinTemperature()
     {
         return minTemperature;
     }
 
-    public void setMinTemperature(int minTemperature)
+    public void setMinTemperature(double minTemperature)
     {
         this.minTemperature = minTemperature;
     }

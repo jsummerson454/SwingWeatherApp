@@ -77,8 +77,8 @@ public class WeatherAPI
 
                 day.setDayOfMonth(calendar.get(Calendar.DAY_OF_MONTH));
                 day.setDayOfWeek(dayOfWeekMap.get(calendar.get(Calendar.DAY_OF_WEEK)));
-                day.setMaxTemperature((int) Double.parseDouble(point.getByKey("temperatureHigh")));
-                day.setMinTemperature((int) Double.parseDouble(point.getByKey("temperatureLow")));
+                day.setMaxTemperature(Double.parseDouble(point.getByKey("temperatureHigh")));
+                day.setMinTemperature(Double.parseDouble(point.getByKey("temperatureLow")));
                 day.setSummary(point.getByKey("summary"));
                 day.setWeatherIconType(parseIcon(point.getByKey("icon")));
 
@@ -150,10 +150,10 @@ public class WeatherAPI
 
                 hour.setDayOfMonth(parseDayFromTime(time));
                 hour.setHour(parseHourFromTime(time));
-                hour.setApparentTemperature((int) Double.parseDouble(point.getByKey("apparentTemperature")));
+                hour.setApparentTemperature(Double.parseDouble(point.getByKey("apparentTemperature")));
                 hour.setHumidity(Double.parseDouble(point.getByKey("humidity")));
                 hour.setWeatherIconType(parseIcon(point.getByKey("icon")));
-                hour.setApparentTemperature((int) Double.parseDouble(point.getByKey("temperature")));
+                hour.setTemperature(Double.parseDouble(point.getByKey("temperature")));
             }
         }
 

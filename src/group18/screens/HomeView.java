@@ -69,6 +69,7 @@ public class HomeView {
         bottomButtons.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
         bottomButtons.setBackground(new Color(-8928782));
         main.add(bottomButtons, BorderLayout.SOUTH);
+        bottomButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         weekly = new JButton();
         weekly.setBackground(new Color(-1842305));
         weekly.setText("Weekly");
@@ -81,6 +82,7 @@ public class HomeView {
         topButtons.setLayout(new BorderLayout(0, 0));
         topButtons.setBackground(new Color(-8928782));
         main.add(topButtons, BorderLayout.NORTH);
+        topButtons.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         titleLabel = new JLabel();
         Font titleLabelFont = this.$$$getFont$$$(null, -1, 28, titleLabel.getFont());
         if (titleLabelFont != null) titleLabel.setFont(titleLabelFont);

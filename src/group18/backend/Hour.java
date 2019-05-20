@@ -4,8 +4,8 @@ public class Hour {
     private int dayOfMonth;
     private int hour;
     private double humidity;
-    private int temperature;
-    private int apparentTemperature;
+    private double temperature;
+    private double apparentTemperature;
     private WeatherIconType weatherIconType;
     private Plan plan;
 
@@ -33,19 +33,19 @@ public class Hour {
         this.humidity = humidity;
     }
 
-    public int getTemperature(){
+    public double getTemperature(){
         return temperature;
     }
 
-    public void setTemperature(int temperature){
+    public void setTemperature(double temperature){
         this.temperature = temperature;
     }
 
-    public int getApparentTemperature(){
+    public double getApparentTemperature(){
         return apparentTemperature;
     }
 
-    public void setApparentTemperature(int apparentTemperature) {
+    public void setApparentTemperature(double apparentTemperature) {
         this.apparentTemperature = apparentTemperature;
     }
 
