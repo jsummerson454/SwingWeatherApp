@@ -52,11 +52,28 @@ public class Application {
         settings.main.setVisible(true);
     }
 
+    public SettingsModel getSettingsModel()
+    {
+        return settingsModel;
+    }
 
     public Application() {
         //initialise models
 
         //initialize screens (with required models as parameters)
+        settings = new SettingsView();
+//        settingsModel = new SettingsModel(settings);
+        try
+        {
+            settingsModel = SettingsModel.initSettingsModel(settings);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            settingsModel = new SettingsModel(settings);
+        }
+        settings.main.setVisible(false);
+        settings.main.setSize(360, 640);
+
         home = new HomeViewOld();
         home.main.setVisible(true);
         home.main.setSize(360, 640);
@@ -69,33 +86,25 @@ public class Application {
         hourly.main.setVisible(false);
         hourly.main.setSize(360, 640);
 
-        settings = new SettingsView();
-//        settingsModel = new SettingsModel(settings);
-        try
-        {
-            settingsModel = SettingsModel.initSettingsModel(settings);
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-            settingsModel = new SettingsModel(settings);
-        }
 
 
-        settings.main.setVisible(false);
-        settings.main.setSize(360, 640);
+
+
 
         //initialise controllers (with screens and required models as parameters)
+        SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(home);
         DailyController dailyController = new DailyController(daily);
         HourlyController hourlyController = new HourlyController(hourly);
-        SettingsController settingsController = new SettingsController(settingsModel);
+
 
         //add screens to window
+        window.add(settings.main);
         window = new JFrame();
         window.add(home.main);
         window.add(daily.main);
         window.add(hourly.main);
-        window.add(settings.main);
+
 
         window.setTitle("Weather App");
         window.setSize(360, 640);
