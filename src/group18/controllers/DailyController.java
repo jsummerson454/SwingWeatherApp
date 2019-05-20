@@ -1,5 +1,6 @@
 package group18.controllers;
 
+import group18.Application;
 import group18.Main;
 import group18.api.WeatherAPI;
 import group18.backend.Day;
@@ -39,9 +40,6 @@ public class DailyController {
                 Main.app.backAScreen();
             }
         });
-
-
-
 
         addDailyForecast(model.getDayList());
 
@@ -84,7 +82,14 @@ public class DailyController {
             });
 
 //            TODO
-//            dayPanel.lbCallendarIcon.setIcon();
+            ImageIcon imageIcon = Application.getWeatherIcon(day.getWeatherIconType()); // load the image to a imageIcon
+            Image image = imageIcon.getImage(); // transform it
+            Image newimg = image.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+            imageIcon = new ImageIcon(newimg);
+            dayPanel.lbWeatherIcon.setText("");
+            dayPanel.lbWeatherIcon.setIcon(imageIcon);
+
+
 //            dayPanel.lbWeatherIcon.setIcon();
             dayPanel.lbDate.setText(day.getDayOfMonth() + " " + day.getDayOfWeek());
             dayPanel.lbDegrees.setText(settingsModel.getInUnits((day.getMaxTemperature() + day.getMinTemperature()) / 2.0));
