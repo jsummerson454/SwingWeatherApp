@@ -9,7 +9,6 @@ import java.util.List;
 public class HourlyModel {
     private List<Hour> hourList;
 
-    /*
     public List<Hour> getHourlyList(){
         return hourList;
     }
@@ -17,7 +16,6 @@ public class HourlyModel {
     public void loadHourlyForecast(){
         hourList = WeatherAPI.getAllHoursForecast();
     }
-    */
 
 
 
