@@ -9,7 +9,7 @@ public class HourlyView {
     private JLabel locationLabel;
     private JButton settingsButton;
     private JScrollPane spHourList;
-    public JButton backButton;
+    private JButton backButton;
     private JLabel loactionLabel;
 
     {
