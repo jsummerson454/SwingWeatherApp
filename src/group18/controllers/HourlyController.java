@@ -3,6 +3,7 @@ package group18.controllers;
 import group18.Main;
 import group18.backend.Day;
 import group18.backend.Hour;
+import group18.backend.Screen;
 import group18.models.HourlyModel;
 import group18.screens.DailyView;
 import group18.screens.DayPanel;
@@ -12,6 +13,8 @@ import group18.api.WeatherAPI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
@@ -24,23 +27,33 @@ public class HourlyController {
     public HourlyController(HourlyView view) {
         this.view = view;
         initModel();
-        view.addHourlyButtonListener(a ->
+        view.addSettingsButtonListener(a ->
         {
+            Main.app.addAScreen(Screen.hourly);
             Main.app.setViewSettings();
+        });
+
+        view.backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.app.backAScreen();
+            }
         });
         addHourlyForecast(model.getHourlyList());
 //        view.addHourlyForecast(model.getHourList());
+        System.out.println("I'M HERE");
     }
 
     private void initModel(){
         model = new HourlyModel();
         model.loadHourlyForecast();
+//        System.out.println("Hi");
     }
 
     public void addHourlyForecast(List<Hour> HourList)
     {
         GridBagLayout layout = new GridBagLayout();
-        view.spHourList.setLayout(layout);
+        view.spHourPanel.setLayout(layout);
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = 1;
@@ -49,11 +62,11 @@ public class HourlyController {
 
         for (Hour hour : HourList)
         {
-            HourlyPanels dayPanel = new HourlyPanels();
+            HourlyPanels hourPanel = new HourlyPanels();
             constraints.gridy = y++;
-            dayPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
-            view.spHourList.add(dayPanel.main, constraints);
-            dayPanel.main.addMouseListener(new MouseAdapter()
+            hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
+            view.spHourList.add(hourPanel.main, constraints);
+            hourPanel.main.addMouseListener(new MouseAdapter()
             {
                 @Override
                 public void mouseClicked(MouseEvent e)
@@ -67,12 +80,12 @@ public class HourlyController {
             });
 
 //            TODO
-//            dayPanel.lbCallendarIcon.setIcon();
-//            dayPanel.lbWeatherIcon.setIcon();
-            dayPanel.lbDate.setText(Integer.toString(hour.getHour()));
-            dayPanel.lbDegrees.setText("" + (hour.getTemperature()));
+//            hourPanel.lbCallendarIcon.setIcon();
+//            hourPanel.lbWeatherIcon.setIcon();
+            hourPanel.lbDate.setText(Integer.toString(hour.getHour()));
+            hourPanel.lbDegrees.setText("" + (hour.getTemperature()));
 
-            dayPanel.main.setVisible(true);
+            hourPanel.main.setVisible(true);
 
 
         }

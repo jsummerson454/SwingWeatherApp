@@ -152,8 +152,8 @@ public class Application {
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(homeModel);
-        DailyController dailyController = new DailyController(settingsModel,daily);
-        //HourlyController hourlyController = new HourlyController(hourly);
+        DailyController dailyController = new DailyController(daily);
+        HourlyController hourlyController = new HourlyController(hourly);
 
 
         //add screens to window

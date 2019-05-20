@@ -2,14 +2,21 @@ package group18.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class HourlyView {
     public JPanel main;
 
     private JLabel locationLabel;
     private JButton settingsButton;
-    private JScrollPane spHourList;
+    public JScrollPane spHourList;
     public JButton backButton;
+    public JPanel spHourPanel;
+
+
+    public void addSettingsButtonListener(ActionListener mal) {
+        settingsButton.addActionListener(mal);
+    }
 
     public HourlyView() {
         Dimension buttonSize = new Dimension(50, 50);
@@ -50,7 +57,7 @@ public class HourlyView {
         panel1.setBorder(BorderFactory.createTitledBorder(""));
         final JPanel spacer1 = new JPanel();
         gbc = new GridBagConstraints();
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 3;
         gbc.fill = GridBagConstraints.VERTICAL;
         panel1.add(spacer1, gbc);
@@ -60,13 +67,13 @@ public class HourlyView {
         if (locationLabelFont != null) locationLabel.setFont(locationLabelFont);
         locationLabel.setText("Location X");
         gbc = new GridBagConstraints();
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         panel1.add(locationLabel, gbc);
         final JPanel spacer2 = new JPanel();
         gbc = new GridBagConstraints();
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
@@ -75,18 +82,25 @@ public class HourlyView {
         settingsButton = new JButton();
         settingsButton.setText("");
         gbc = new GridBagConstraints();
-        gbc.gridx = 2;
+        gbc.gridx = 3;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel1.add(settingsButton, gbc);
-        spHourList = new JScrollPane();
+        spHourPanel = new JPanel();
+        spHourPanel.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.BOTH;
+        panel1.add(spHourPanel, gbc);
+        spHourList = new JScrollPane();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         gbc.weightx = 1.0;
         gbc.weighty = 1500.0;
         gbc.fill = GridBagConstraints.BOTH;
-        panel1.add(spHourList, gbc);
+        spHourPanel.add(spHourList, gbc);
         spHourList.setBorder(BorderFactory.createTitledBorder(""));
         final JPanel spacer3 = new JPanel();
         gbc = new GridBagConstraints();

@@ -78,7 +78,7 @@ public class WeatherAPI
                 day.setDayOfMonth(calendar.get(Calendar.DAY_OF_MONTH));
                 day.setDayOfWeek(dayOfWeekMap.get(calendar.get(Calendar.DAY_OF_WEEK)));
                 day.setMaxTemperature((int) Double.parseDouble(point.getByKey("temperatureHigh")));
-                day.setMaxTemperature((int) Double.parseDouble(point.getByKey("temperatureLow")));
+                day.setMinTemperature((int) Double.parseDouble(point.getByKey("temperatureLow")));
                 day.setSummary(point.getByKey("summary"));
                 day.setWeatherIconType(parseIcon(point.getByKey("icon")));
 
@@ -133,8 +133,7 @@ public class WeatherAPI
 
     private static List<Hour> getHourlyForecastAPICall()
     {
-        List<Hour> hours = new ArrayList<>();
-
+        List<Hour> hourlyForecast = new ArrayList<>();
         FIOHourly hourly = new FIOHourly(fio);
 
         //In case there is no daily data available
@@ -158,7 +157,7 @@ public class WeatherAPI
             }
         }
 
-        return hours;
+        return hourlyForecast;
     }
 
 
