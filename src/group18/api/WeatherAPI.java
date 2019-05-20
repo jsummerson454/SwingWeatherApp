@@ -153,7 +153,7 @@ public class WeatherAPI
                 hour.setApparentTemperature(Double.parseDouble(point.getByKey("apparentTemperature")));
                 hour.setHumidity(Double.parseDouble(point.getByKey("humidity")));
                 hour.setWeatherIconType(parseIcon(point.getByKey("icon")));
-                hour.setApparentTemperature(Double.parseDouble(point.getByKey("temperature")));
+                hour.setTemperature(Double.parseDouble(point.getByKey("temperature")));
             }
         }
 
