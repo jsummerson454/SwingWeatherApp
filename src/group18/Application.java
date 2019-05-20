@@ -51,8 +51,12 @@ public class Application {
         settings.main.setVisible(true);
     }
 
+    public void addAScreen(Screen s) {
+        previousScreen.add(s);
+    }
+
     public void backAScreen() {
-        Screen s = previousScreen.remove();
+        Screen s = previousScreen.removeLast();
         switch (s) {
             case home:
                 setViewHome();

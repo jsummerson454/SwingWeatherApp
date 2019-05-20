@@ -12,7 +12,7 @@ public class DailyView
     private JLabel lbLocation;
     private JButton settingsButton;
     private JScrollPane spDayList;
-    private JButton backButton;
+    public JButton backButton;
     private JButton suggestButton;
     public JPanel main;
     public JPanel dayListPanel;
