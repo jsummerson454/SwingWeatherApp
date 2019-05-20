@@ -22,16 +22,16 @@ public class WeatherAPI
         fio.setLang(ForecastIO.LANG_ENGLISH);
         fio.getForecast("52.2053", "0.1218");
 
-        weatherTypeIconMap.put("clear-day", WeatherIconType.Clear);
-        weatherTypeIconMap.put("clear-night", WeatherIconType.Clear);
-        weatherTypeIconMap.put("rain", WeatherIconType.Rain);
-        weatherTypeIconMap.put("snow", WeatherIconType.Snow);
-        weatherTypeIconMap.put("sleet", WeatherIconType.Sleet);
-        weatherTypeIconMap.put("wind", WeatherIconType.Wind);
-        weatherTypeIconMap.put("fog", WeatherIconType.Fog);
-        weatherTypeIconMap.put("partly-cloudy-day", WeatherIconType.Partly_Cloudy);
-        weatherTypeIconMap.put("partly-cloudy-night", WeatherIconType.Partly_Cloudy);
-        weatherTypeIconMap.put("cloudy", WeatherIconType.Cloudy);
+        weatherTypeIconMap.put("\"clear-day\"", WeatherIconType.Clear);
+        weatherTypeIconMap.put("\"clear-night\"", WeatherIconType.Clear);
+        weatherTypeIconMap.put("\"rain\"", WeatherIconType.Rain);
+        weatherTypeIconMap.put("\"snow\"", WeatherIconType.Snow);
+        weatherTypeIconMap.put("\"sleet\"", WeatherIconType.Sleet);
+        weatherTypeIconMap.put("\"wind\"", WeatherIconType.Wind);
+        weatherTypeIconMap.put("\"fog\"", WeatherIconType.Fog);
+        weatherTypeIconMap.put("\"partly-cloudy-day\"", WeatherIconType.Partly_Cloudy);
+        weatherTypeIconMap.put("\"partly-cloudy-night\"", WeatherIconType.Partly_Cloudy);
+        weatherTypeIconMap.put("\"cloudy\"", WeatherIconType.Cloudy);
 
         dayOfWeekMap.put(Calendar.MONDAY,"Mon");
         dayOfWeekMap.put(Calendar.TUESDAY,"Tue");
