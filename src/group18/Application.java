@@ -3,7 +3,9 @@ package group18;
 import group18.backend.Screen;
 import group18.backend.WeatherIconType;
 import group18.controllers.*;
+import group18.models.DailyModel;
 import group18.models.HomeModel;
+import group18.models.HourlyModel;
 import group18.models.SettingsModel;
 import group18.screens.*;
 
@@ -16,6 +18,10 @@ public class Application {
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
+    private HomeController homeController;
+    private DailyController dailyController;
+    private HourlyController hourlyController;
+
     public static String location;
 
     // Keeps a stack of screens traversed through
@@ -24,6 +30,24 @@ public class Application {
     private SettingsModel settingsModel;
 
     private JFrame window;
+
+    public void updateTemperatureLabels()
+    {
+        if(null != homeController)
+        {
+            homeController.updateTemperatureLabels();
+        }
+
+        if(null != dailyController)
+        {
+            dailyController.updateTemperatureLabels();
+        }
+
+        if(null != hourlyController)
+        {
+            hourlyController.updateTemperatureLabels();
+        }
+    }
 
     public static ImageIcon getWeatherIcon(WeatherIconType w) {
         // Gets the corresponding weather icon based on type entered
@@ -113,7 +137,7 @@ public class Application {
         return settingsModel;
     }
 
-    public Application() {
+    public void init() {
         //initialise models
 
         //initialize screens (with required models as parameters)
@@ -151,9 +175,9 @@ public class Application {
 
         //initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-        HomeController homeController = new HomeController(homeModel);
-        DailyController dailyController = new DailyController(settingsModel,daily);
-        HourlyController hourlyController = new HourlyController(settingsModel,hourly);
+        homeController = new HomeController(homeModel);
+        dailyController = new DailyController(settingsModel,daily);
+        hourlyController = new HourlyController(settingsModel,hourly);
 
 
         //add screens to window

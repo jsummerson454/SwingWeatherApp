@@ -19,13 +19,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HourlyController {
     private HourlyView view;
     private HourlyModel model;
     private SettingsModel settingsModel;
-
+    private List<HourlyPanels> hourlyPanels = new ArrayList<>();
 
     public HourlyController(SettingsModel settingsModel, HourlyView view) {
         this.view = view;
@@ -55,6 +56,8 @@ public class HourlyController {
 
     public void addHourlyForecast(List<Hour> HourList)
     {
+        hourlyPanels.clear();
+
         GridBagLayout layout = new GridBagLayout();
         view.spHourPanel.setLayout(layout);
 
@@ -64,7 +67,7 @@ public class HourlyController {
 
         for (Hour hour : HourList)
         {
-            HourlyPanels hourPanel = new HourlyPanels();
+            HourlyPanels hourPanel = new HourlyPanels(hour);
             constraints.gridy = y++;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
@@ -95,9 +98,21 @@ public class HourlyController {
             hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hour.getApparentTemperature()));
             hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hour.getTemperature()));
             hourPanel.main.setVisible(true);
+            hourlyPanels.add(hourPanel);
 
 
         }
+
+
+    }
+
+    public void updateTemperatureLabels()
+    {
+        hourlyPanels.forEach(hourPanel ->
+        {
+            hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hourPanel.getHour().getTemperature()));
+            hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hourPanel.getHour().getApparentTemperature()));
+        });
     }
 
 

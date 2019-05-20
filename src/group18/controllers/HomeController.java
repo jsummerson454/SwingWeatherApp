@@ -41,4 +41,9 @@ public class HomeController {
         });
 
     }
+
+    public void updateTemperatureLabels()
+    {
+        homeModel.refreshLabels();
+    }
 }
