@@ -112,6 +112,12 @@ public class HourlyController {
             hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hour.getApparentTemperature()));
             hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hour.getTemperature()));
             hourPanel.main.setVisible(true);
+            if(hour.hasPlan())
+            {
+                hourPanel.eventButton.setText(hour.getPlan().getTitle());
+                hourPanel.eventButton.setForeground(Color.red);
+            }
+
             hourlyPanels.add(hourPanel);
 
 
