@@ -20,6 +20,8 @@ public class Application {
 
     public void refreshAll() {
         homeModel.refreshLabels();
+        hourlyController.refresh();
+        dailyController.refresh();
     }
 
     private HomeController homeController;
