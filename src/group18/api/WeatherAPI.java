@@ -47,12 +47,35 @@ public class WeatherAPI
     private static List<Day> dailyForecast = null;
     private static List<Hour> hourlyForecast = null;
 
+    private static void mapHoursToDays()
+    {
+        for(Day day: dailyForecast)
+        {
+            List<Hour> hours = new ArrayList<>();
+
+
+            for(Hour hour: hourlyForecast)
+            {
+                if(day.getDayOfMonth() == hour.getDayOfMonth())
+                {
+                    hours.add(hour);
+                }
+            }
+
+            day.setHourList(hours);
+        }
+    }
+
     //  want to make only one api call per opening of the app
     public static List<Day> getDailyForecast()
     {
         if( null == dailyForecast)
         {
             dailyForecast = getDailyForecastAPICall();
+            if(null != hourlyForecast)
+            {
+                mapHoursToDays();
+            }
         }
 
         return new ArrayList(dailyForecast);
@@ -160,6 +183,11 @@ public class WeatherAPI
         if( null == hourlyForecast)
         {
             hourlyForecast = getHourlyForecastAPICall();
+
+            if(null != dailyForecast)
+            {
+                mapHoursToDays();
+            }
         }
 
         return new ArrayList(hourlyForecast);
@@ -192,6 +220,9 @@ public class WeatherAPI
                 hour.setTemperature(Double.parseDouble(point.getByKey("temperature")));
             }
         }
+
+
+
 
         return hourlyForecast;
     }
@@ -263,7 +294,7 @@ public class WeatherAPI
 
         calendar.set(Calendar.YEAR,Integer.parseInt(year));
         calendar.set(Calendar.MONTH,Integer.parseInt(month) - 1);
-        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day));
+        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day) - 1);
 
         return calendar;
     }
