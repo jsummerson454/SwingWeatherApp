@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class HourlyController {
@@ -50,7 +52,15 @@ public class HourlyController {
 
     private void initModel(){
         model = new HourlyModel();
-        model.loadHourlyForecast();
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public void openForADayOfMonth(int dayOfMonth)
+    {
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(dayOfMonth);
+        addHourlyForecast(model.getHourlyList());
     }
 
     public void addHourlyForecast(List<Hour> HourList)
