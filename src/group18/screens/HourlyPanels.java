@@ -8,20 +8,19 @@ import java.awt.*;
 public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
-    public JLabel lbCallendarIcon;
     private JButton addEventButton;
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
+    public JLabel lbWeatherIcon;
 
     private Hour hour;
-    public Hour getHour()
-    {
+
+    public Hour getHour() {
         return hour;
     }
 
-    public HourlyPanels(Hour hour)
-    {
+    public HourlyPanels(Hour hour) {
         this.hour = hour;
     }
 
@@ -99,6 +98,7 @@ public class HourlyPanels {
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
+        gbc.gridheight = 2;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel3, gbc);
@@ -121,7 +121,7 @@ public class HourlyPanels {
         panel4.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel4, gbc);
@@ -140,15 +140,15 @@ public class HourlyPanels {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel4.add(lbDegrees, gbc);
-        lbCallendarIcon = new JLabel();
-        lbCallendarIcon.setPreferredSize(new Dimension(80, 16));
-        lbCallendarIcon.setText("WeatherIcon");
+        lbWeatherIcon = new JLabel();
+        lbWeatherIcon.setPreferredSize(new Dimension(80, 16));
+        lbWeatherIcon.setText("WeatherIcon");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.gridheight = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
-        main.add(lbCallendarIcon, gbc);
+        main.add(lbWeatherIcon, gbc);
         addEventButton = new JButton();
         addEventButton.setAlignmentY(0.8f);
         addEventButton.setMaximumSize(new Dimension(100, 100));
@@ -161,7 +161,7 @@ public class HourlyPanels {
         addEventButton.setVerifyInputWhenFocusTarget(true);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         main.add(addEventButton, gbc);
     }
