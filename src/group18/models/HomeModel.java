@@ -25,17 +25,15 @@ public class HomeModel {
         this.homeView = homeView;
         this.settingsModel = settingsModel;
 
-        Calendar thisInstant = Calendar.getInstance();
-
-        Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
-
-        // Setting up the average temperature
-        averageTemperature = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
-        homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
         refreshLabels();
     }
 
     public void refreshLabels () {
+        Calendar thisInstant = Calendar.getInstance();
+        Day today = WeatherAPI.getForecastForADay(thisInstant.get(Calendar.DAY_OF_MONTH));
+        averageTemperature = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
+        homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
+
         // Using function in to convert to string
         String tempStr = settingsModel.getInUnits(averageTemperature);
         homeView.actualTemperature.setText(tempStr);

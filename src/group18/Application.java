@@ -4,6 +4,7 @@ import group18.backend.Screen;
 import group18.backend.WeatherIconType;
 import group18.controllers.*;
 import group18.models.HomeModel;
+import group18.models.HourlyModel;
 import group18.models.SettingsModel;
 import group18.screens.*;
 
@@ -16,13 +17,19 @@ public class Application {
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
-    public static String location;
+    public String location;
+
+    public void refreshAll() {
+        homeModel.refreshLabels();
+    }
 
     // Keeps a stack of screens traversed through
     private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
     private HomeModel homeModel;
+
+    private HourlyController hourlyController;
 
     private JFrame window;
 
@@ -114,7 +121,11 @@ public class Application {
         return settingsModel;
     }
 
-    public Application() {
+    public Application(String loc) {
+
+        //set initial location (set to "Cambridge")
+        location = loc;
+
         //initialise models
 
         //initialize screens (with required models as parameters)
@@ -154,7 +165,7 @@ public class Application {
         SettingsController settingsController = new SettingsController(settingsModel);
         HomeController homeController = new HomeController(settingsModel,homeModel);
         DailyController dailyController = new DailyController(settingsModel,daily);
-        HourlyController hourlyController = new HourlyController(settingsModel,hourly);
+        hourlyController = new HourlyController(settingsModel,hourly);
 
 
         //add screens to window
