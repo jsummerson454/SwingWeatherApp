@@ -24,6 +24,7 @@ public class DailyController {
     private DailyModel model;
     private SettingsModel settingsModel;
     private List<DayPanel> dayPanels = new ArrayList<>();
+    private List<DayPanel> goodDays = new ArrayList<>();
 
     public DailyController(SettingsModel settingsModel, DailyView view) {
         this.view = view;
@@ -39,7 +40,20 @@ public class DailyController {
         view.backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                for (DayPanel daypanel: goodDays) {
+                    daypanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
+                    daypanel.wow.setBackground(new Color(223, 230, 242));
+                }
                 Main.app.backAScreen();
+            }
+        });
+
+        view.suggestButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (DayPanel daypanel: goodDays) {
+                    daypanel.wow.setBackground(Color.yellow);
+                }
             }
         });
 
@@ -103,6 +117,10 @@ public class DailyController {
 //            dayPanel.lbWeatherIcon.setIcon();
             dayPanel.lbDate.setText(day.getDayOfMonth() + " " + day.getDayOfWeek());
             dayPanel.lbDegrees.setText(settingsModel.getInUnits((day.getMaxTemperature() + day.getMinTemperature()) / 2.0));
+
+            if (((day.getMaxTemperature() + day.getMinTemperature())/2.0)>15.0) {
+                goodDays.add(dayPanel);
+            }
 
             dayPanel.main.setVisible(true);
             dayPanels.add(dayPanel);

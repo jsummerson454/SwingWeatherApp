@@ -86,7 +86,7 @@ public class WeatherAPI
                 fio.getForecast("52.2053", "0.1218");
                 break;
         }
-        Main.app.location = loc;
+        Main.app.location = loc.substring(0,1).toUpperCase() + loc.substring(1).toLowerCase();
 
         hourlyForecast = getHourlyForecastAPICall();
         dailyForecast = getDailyForecastAPICall();
