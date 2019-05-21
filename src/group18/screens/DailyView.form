@@ -88,6 +88,7 @@
                 <constraints/>
                 <properties>
                   <background color="-1842305"/>
+                  <hideActionText value="false"/>
                   <text value="Back"/>
                 </properties>
               </component>

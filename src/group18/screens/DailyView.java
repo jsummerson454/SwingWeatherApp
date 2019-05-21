@@ -111,6 +111,7 @@ public class DailyView {
         panel1.add(panel4, gbc);
         backButton = new JButton();
         backButton.setBackground(new Color(-1842305));
+        backButton.setHideActionText(false);
         backButton.setText("Back");
         panel4.add(backButton);
         suggestButton = new JButton();

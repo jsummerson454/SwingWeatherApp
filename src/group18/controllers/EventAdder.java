@@ -6,14 +6,16 @@ import group18.misc.EventSelector;
 import group18.misc.Location;
 import group18.misc.LocationSelector;
 import group18.models.SettingsModel;
+import group18.screens.HourlyPanels;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EventAdder {
 
-    public EventAdder(Hour thisHour) {
+    public EventAdder(Hour thisHour, HourlyPanels hourPanel) {
         // Creating our pop-up box which enables the user to select a location
         JFrame window = new JFrame();
 
@@ -31,13 +33,28 @@ public class EventAdder {
             }
         });
 
+        // Delete button
+        // Setting the back button to remove the frame
+        loc.deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                thisHour.hasNoPlan(false);
+                hourPanel.eventButton.setForeground(Color.black);
+                hourPanel.eventButton.setText("+Event");
+                window.dispose();
+            }
+        });
+
         // After enter is selected the country and city entered is processed
         loc.enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Plan new_plan = new Plan(loc.countryField.getText());
+                String event_name = loc.countryField.getText();
+                Plan new_plan = new Plan(event_name);
                 thisHour.setPlan(new_plan);
                 window.dispose();
+                hourPanel.eventButton.setForeground(Color.green);
+                hourPanel.eventButton.setText(event_name);
             }
         });
 
