@@ -32,7 +32,8 @@ public class LocationSelector {
         main.setBackground(new Color(-1381654));
         enterButton = new JButton();
         enterButton.setBackground(new Color(-7171438));
-        enterButton.setForeground(new Color(-1));
+        enterButton.setForeground(new Color(-13680383));
+        enterButton.setHideActionText(false);
         enterButton.setText("Enter");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
@@ -58,7 +59,7 @@ public class LocationSelector {
         main.add(cityField, gbc);
         backButton = new JButton();
         backButton.setBackground(new Color(-7171438));
-        backButton.setForeground(new Color(-1));
+        backButton.setForeground(new Color(-13680383));
         backButton.setText("Back");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;

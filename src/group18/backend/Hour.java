@@ -75,4 +75,8 @@ public class Hour {
         this.plan = plan;
         this.has_plan = true;
     }
+
+    public void hasNoPlan(boolean b) {
+        this.has_plan = b;
+    }
 }

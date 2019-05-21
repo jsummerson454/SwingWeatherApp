@@ -13,7 +13,7 @@ public class DailyView {
     private JButton settingsButton;
     private JScrollPane spDayList;
     public JButton backButton;
-    private JButton suggestButton;
+    public JButton suggestButton;
     public JPanel main;
     public JPanel dayListPanel;
 
@@ -120,6 +120,7 @@ public class DailyView {
         panel4.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         backButton = new JButton();
         backButton.setBackground(new Color(-1842305));
+        backButton.setHideActionText(false);
         backButton.setText("Back");
         panel4.add(backButton);
         suggestButton = new JButton();
