@@ -44,15 +44,6 @@
               <text value="WeatherIcon"/>
             </properties>
           </component>
-          <component id="288bd" class="javax.swing.JLabel" binding="lbCallendarIcon">
-            <constraints>
-              <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag top="5" left="0" bottom="5" right="10" weightx="0.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="CallendarIcon"/>
-            </properties>
-          </component>
         </children>
       </grid>
     </children>

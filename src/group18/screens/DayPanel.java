@@ -10,7 +10,6 @@ public class DayPanel {
     public JLabel lbDate;
     public JLabel lbDegrees;
     public JLabel lbWeatherIcon;
-    public JLabel lbCallendarIcon;
     private Day day;
 
     public Day getDay() {
@@ -76,15 +75,6 @@ public class DayPanel {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel1.add(lbWeatherIcon, gbc);
-        lbCallendarIcon = new JLabel();
-        lbCallendarIcon.setText("CallendarIcon");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.gridheight = 2;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 0, 5, 10);
-        panel1.add(lbCallendarIcon, gbc);
     }
 
     /**
