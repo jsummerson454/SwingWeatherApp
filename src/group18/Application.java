@@ -16,7 +16,12 @@ public class Application {
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
-    public static String location;
+    public String location;
+
+    public void refreshAll() {
+        homeModel.refreshLabels();
+    }
+
     private HomeController homeController;
     private DailyController dailyController;
     private HourlyController hourlyController;
@@ -25,11 +30,15 @@ public class Application {
     private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
+    private HomeModel homeModel;
+
 
     private JFrame window;
 
     public void updateTemperatureLabels()
     {
+        // Updating labels once units or the temperature changes
+        // because of location
         if(null != homeController)
         {
             homeController.updateTemperatureLabels();
@@ -79,6 +88,7 @@ public class Application {
     }
 
     public void setViewHome() {
+        // Sets the home screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(false);
         home.main.setVisible(true);
@@ -86,6 +96,7 @@ public class Application {
     }
 
     public void setViewDaily() {
+        // Sets the daily screen visible
         daily.main.setVisible(true);
         hourly.main.setVisible(false);
         home.main.setVisible(false);
@@ -93,6 +104,7 @@ public class Application {
     }
 
     public void setViewHourly() {
+        // Sets the hourly screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(true);
         home.main.setVisible(false);
@@ -100,6 +112,7 @@ public class Application {
     }
 
     public void setViewSettings() {
+        // Sets the setting screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(false);
         home.main.setVisible(false);
@@ -130,24 +143,26 @@ public class Application {
         }
     }
 
-    public SettingsModel getSettingsModel() {
-        return settingsModel;
+    public void setHourlyDay(int day)
+    {
+        hourlyController.openForADayOfMonth(day);
     }
 
     public void init() {
-        //initialise models
+        // Initialise models
 
-        //initialize screens (with required models as parameters)
+        // Initialize screens (with required models as parameters)
         settings = new SettingsView();
-        // settingsModel = new SettingsModel(settings);
-        try
-        {
+        try {
+            // Used to load any saved settings
             settingsModel = SettingsModel.initSettingsModel(settings);
         } catch (Exception e)
         {
+            // No saved settings default model
             e.printStackTrace();
             settingsModel = new SettingsModel(settings);
         }
+        // Initialising our screens
         settings.main.setVisible(false);
         settings.main.setSize(360, 640);
 
@@ -155,7 +170,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(settingsModel,home);
+        homeModel = new HomeModel(settingsModel,home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
@@ -165,20 +180,14 @@ public class Application {
         hourly.main.setVisible(false);
         hourly.main.setSize(360, 640);
 
-
-
-
-
-
-        //initialise controllers (with screens and required models as parameters)
+        // Initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
         homeController = new HomeController(settingsModel,homeModel);
         dailyController = new DailyController(settingsModel,daily);
         hourlyController = new HourlyController(settingsModel,hourly);
 
 
-        //add screens to window
-
+        // Add screens to a new window
         window = new JFrame();
         window.add(settings.main);
         window.add(home.main);
@@ -187,7 +196,7 @@ public class Application {
 
 
         window.setTitle("Weather App");
-        window.setSize(360, 640);
+        window.setSize(370, 675);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }

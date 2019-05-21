@@ -1,5 +1,6 @@
 package group18.controllers;
 
+import group18.api.WeatherAPI;
 import group18.misc.Location;
 import group18.misc.LocationSelector;
 import group18.models.SettingsModel;
@@ -32,7 +33,9 @@ public class LocationWindow {
         loc.enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Location l = new Location(loc.countryField.getText(), loc.cityField.getText());
+                WeatherAPI.setLocation(loc.cityField.getText());
+                window.dispose();
+                //Location l = new Location(loc.countryField.getText(), loc.cityField.getText());
             }
         });
 

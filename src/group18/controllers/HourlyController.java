@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class HourlyController {
@@ -50,13 +52,21 @@ public class HourlyController {
 
     private void initModel(){
         model = new HourlyModel();
-        model.loadHourlyForecast();
-//        System.out.println("Hi");
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    public void openForADayOfMonth(int dayOfMonth)
+    {
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(dayOfMonth);
+        addHourlyForecast(model.getHourlyList());
     }
 
     public void addHourlyForecast(List<Hour> HourList)
     {
         hourlyPanels.clear();
+        view.spHourPanel.removeAll();
 
         GridBagLayout layout = new GridBagLayout();
         view.spHourPanel.setLayout(layout);
@@ -72,7 +82,6 @@ public class HourlyController {
             constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
-
 
 //            TODO
 //            hourPanel.lbCallendarIcon.setIcon();
@@ -93,24 +102,17 @@ public class HourlyController {
             hourPanel.eventButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    EventAdder EventAdder = new EventAdder(hour, hourPanel);
+                    EventAdder EventAdder = new EventAdder(hour);
                 }
             });
-            hourPanel.main.addMouseListener(new MouseAdapter()
-            {
+            hourPanel.main.addMouseListener(new MouseAdapter() {
                 @Override
-                public void mouseClicked(MouseEvent e)
-                {
+                public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
 
-//                    TODO: OPEN THE Hourly Screen
-                    System.out.println("Opening for day: " + hour.getDayOfMonth());
-
                 }
-            });
-        }
 
-
+            }
     }
 
     public void updateTemperatureLabels()

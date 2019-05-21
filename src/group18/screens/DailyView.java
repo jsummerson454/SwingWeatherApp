@@ -21,6 +21,7 @@ public class DailyView {
     }
 
     public DailyView() {
+        // Code to explicitly set the icon and size of the settings button
         Dimension buttonSize = new Dimension(50, 50);
         settingsButton.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
         settingsButton.setMaximumSize(buttonSize);
@@ -67,6 +68,7 @@ public class DailyView {
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         panel1.add(panel2, gbc);
+        panel2.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         lbLocation = new JLabel();
         lbLocation.setBackground(new Color(-8928782));
         Font lbLocationFont = this.$$$getFont$$$(null, -1, 28, lbLocation.getFont());
@@ -109,6 +111,7 @@ public class DailyView {
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         panel1.add(panel4, gbc);
+        panel4.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         backButton = new JButton();
         backButton.setBackground(new Color(-1842305));
         backButton.setHideActionText(false);

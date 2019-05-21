@@ -1,5 +1,7 @@
 package group18.screens;
 
+import group18.models.HourlyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -19,6 +21,7 @@ public class HourlyView {
     }
 
     public HourlyView() {
+        // Code to explicitly set the icon and size of the settings button
         Dimension buttonSize = new Dimension(50, 50);
         settingsButton.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
         settingsButton.setMaximumSize(buttonSize);
@@ -56,7 +59,7 @@ public class HourlyView {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel1, gbc);
-        panel1.setBorder(BorderFactory.createTitledBorder(""));
+        panel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), ""));
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -106,6 +109,7 @@ public class HourlyView {
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel3, gbc);
+        panel3.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         backButton = new JButton();
         backButton.setBackground(new Color(-1842305));
         backButton.setText("Back");
@@ -137,4 +141,5 @@ public class HourlyView {
     public JComponent $$$getRootComponent$$$() {
         return main;
     }
+
 }
