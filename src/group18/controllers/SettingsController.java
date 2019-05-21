@@ -8,6 +8,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class SettingsController
 {
@@ -24,6 +25,11 @@ public class SettingsController
         settingsView.backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    settingsModel.saveSettings();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 Main.app.backAScreen();
             }
         });

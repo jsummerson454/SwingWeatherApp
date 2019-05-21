@@ -67,7 +67,7 @@
           <grid id="36691" binding="temperatureAndImage" layout-manager="GridBagLayout">
             <constraints border-constraint="Center"/>
             <properties>
-              <background color="-4395790"/>
+              <background color="-3284494"/>
             </properties>
             <border type="none"/>
             <children>
@@ -98,13 +98,15 @@
                   <gridbag weightx="0.75" weighty="0.5"/>
                 </constraints>
                 <properties>
-                  <background color="-4395790"/>
+                  <background color="-3284494"/>
                 </properties>
                 <border type="none"/>
                 <children>
                   <component id="56f98" class="javax.swing.JLabel" binding="imageIcon">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <background color="-3284494"/>
+                      <enabled value="true"/>
                       <horizontalAlignment value="4"/>
                       <text value=""/>
                     </properties>

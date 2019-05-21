@@ -21,18 +21,24 @@ public class NotificationWindow {
         window.setSize(300, 150);
         window.add(not.main);
 
-        if (currentTemp < settingsModel.getColdThreshold()) {
-            not.tempLabel.setText("It's cold!");
-            not.suggestionLabel.setText("Make sure your children have coats");
-
-        }
-        else if (currentTemp > settingsModel.getHotThreshold()) {
-            not.tempLabel.setText("It's hot!");
-            not.suggestionLabel.setText("Make sure your children have shorts");
+        if (!(settingsModel.isNotifications())) {
+            not.tempLabel.setText("Notifications turned off");
+            not.suggestionLabel.setText("So they will not be received");
         }
         else {
-            not.tempLabel.setText("No notification");
-            not.suggestionLabel.setText("Acceptable temperature");
+            if (currentTemp < settingsModel.getColdThreshold()) {
+                not.tempLabel.setText("It's cold!");
+                not.suggestionLabel.setText("Make sure your children have coats");
+
+            }
+            else if (currentTemp > settingsModel.getHotThreshold()) {
+                not.tempLabel.setText("It's hot!");
+                not.suggestionLabel.setText("Make sure your children have shorts");
+            }
+            else {
+                not.tempLabel.setText("No notification");
+                not.suggestionLabel.setText("Acceptable temperature");
+            }
         }
 
 

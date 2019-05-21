@@ -101,7 +101,7 @@ public class HomeView {
         mainPanel.add(warningsAndPlans, BorderLayout.SOUTH);
         temperatureAndImage = new JPanel();
         temperatureAndImage.setLayout(new GridBagLayout());
-        temperatureAndImage.setBackground(new Color(-4395790));
+        temperatureAndImage.setBackground(new Color(-3284494));
         mainPanel.add(temperatureAndImage, BorderLayout.CENTER);
         actualTemperature = new JLabel();
         Font actualTemperatureFont = this.$$$getFont$$$(null, -1, 28, actualTemperature.getFont());
@@ -129,7 +129,7 @@ public class HomeView {
         temperatureAndImage.add(feelsLike, gbc);
         imagePanel = new JPanel();
         imagePanel.setLayout(new BorderLayout(0, 0));
-        imagePanel.setBackground(new Color(-4395790));
+        imagePanel.setBackground(new Color(-3284494));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
@@ -139,6 +139,8 @@ public class HomeView {
         gbc.fill = GridBagConstraints.BOTH;
         temperatureAndImage.add(imagePanel, gbc);
         imageIcon = new JLabel();
+        imageIcon.setBackground(new Color(-3284494));
+        imageIcon.setEnabled(true);
         imageIcon.setHorizontalAlignment(4);
         imageIcon.setText("");
         imagePanel.add(imageIcon, BorderLayout.CENTER);
