@@ -146,8 +146,10 @@ public class WeatherAPI
                 FIODataPoint point = hourly.getHour(i);
 
                 String time = point.getByKey("time");
+                Calendar calendar = getCalenderFromTime(point.getByKey("time"));
 
                 hour.setDayOfMonth(parseDayFromTime(time));
+                hour.setDayOfWeek(dayOfWeekMap.get(calendar.get(Calendar.DAY_OF_WEEK)));
                 hour.setHour(parseHourFromTime(time));
                 hour.setApparentTemperature(Double.parseDouble(point.getByKey("apparentTemperature")));
                 hour.setHumidity(Double.parseDouble(point.getByKey("humidity")));

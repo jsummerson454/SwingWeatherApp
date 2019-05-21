@@ -1,5 +1,7 @@
 package group18.controllers;
 
+import group18.backend.Hour;
+import group18.backend.Plan;
 import group18.misc.EventSelector;
 import group18.misc.Location;
 import group18.misc.LocationSelector;
@@ -11,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class EventAdder {
 
-    public EventAdder() {
+    public EventAdder(Hour thisHour) {
         // Creating our pop-up box which enables the user to select a location
         JFrame window = new JFrame();
 
@@ -33,6 +35,9 @@ public class EventAdder {
         loc.enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Plan new_plan = new Plan(loc.countryField.getText());
+                thisHour.setPlan(new_plan);
+                window.dispose();
             }
         });
 
