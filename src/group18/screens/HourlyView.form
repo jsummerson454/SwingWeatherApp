@@ -17,7 +17,7 @@
         <properties>
           <background color="-8928782"/>
         </properties>
-        <border type="none" title=""/>
+        <border type="line" title=""/>
         <children>
           <grid id="8c85b" layout-manager="GridBagLayout">
             <constraints>
@@ -78,7 +78,7 @@
         <properties>
           <background color="-8928782"/>
         </properties>
-        <border type="none"/>
+        <border type="line"/>
         <children>
           <component id="df69d" class="javax.swing.JButton" binding="backButton">
             <constraints/>

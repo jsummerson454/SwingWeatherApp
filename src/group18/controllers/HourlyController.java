@@ -66,6 +66,7 @@ public class HourlyController {
     public void addHourlyForecast(List<Hour> HourList)
     {
         hourlyPanels.clear();
+        view.spHourPanel.removeAll();
 
         GridBagLayout layout = new GridBagLayout();
         view.spHourPanel.setLayout(layout);

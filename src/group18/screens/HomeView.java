@@ -32,20 +32,16 @@ public class HomeView {
     }
 
     public HomeView() {
+        // Code to explicitly set the icon and size of the settings button
         Dimension buttonSize = new Dimension(50, 50);
         settings.setIcon(new ImageIcon("resources/SettingsIconSmaller.png"));
         settings.setMaximumSize(buttonSize);
         settings.setMinimumSize(buttonSize);
         settings.setPreferredSize(buttonSize);
 
+        // Overwritten later, default icon
         imageIcon.setIcon(new ImageIcon("resources/clear-day.png"));
 
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        frame.setContentPane(new HomeView().main);
-        frame.setVisible(true);
     }
 
 

@@ -57,6 +57,7 @@ public class DailyController {
     public void addDailyForecast(List<Day> dayList)
     {
         dayPanels.clear();
+        view.dayListPanel.removeAll();
 
         GridBagLayout layout = new GridBagLayout();
         view.dayListPanel.setLayout(layout);
@@ -85,6 +86,8 @@ public class DailyController {
 
 //                    TODO: OPEN THE Hourly Screen
                     System.out.println("Opening for day: " + day.getDayOfMonth());
+                    Main.app.setHourlyDay(day.getDayOfMonth());
+                    Main.app.setViewHourly();
 
                 }
             });

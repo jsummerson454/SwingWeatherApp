@@ -25,7 +25,7 @@
             <properties>
               <background color="-8928782"/>
             </properties>
-            <border type="none"/>
+            <border type="line"/>
             <children>
               <component id="493c4" class="javax.swing.JLabel" binding="lbLocation">
                 <constraints border-constraint="Center"/>
@@ -82,7 +82,7 @@
             <properties>
               <background color="-8928782"/>
             </properties>
-            <border type="none"/>
+            <border type="line"/>
             <children>
               <component id="bdc64" class="javax.swing.JButton" binding="backButton" default-binding="true">
                 <constraints/>

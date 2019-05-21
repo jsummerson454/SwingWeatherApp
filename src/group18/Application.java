@@ -4,7 +4,6 @@ import group18.backend.Screen;
 import group18.backend.WeatherIconType;
 import group18.controllers.*;
 import group18.models.HomeModel;
-import group18.models.HourlyModel;
 import group18.models.SettingsModel;
 import group18.screens.*;
 
@@ -146,17 +145,12 @@ public class Application {
         }
     }
 
-    public SettingsModel getSettingsModel() {
-        return settingsModel;
+    public void setHourlyDay(int day)
+    {
+        hourlyController.openForADayOfMonth(day);
     }
 
-    public Application(String loc) {
-
-        //set initial location (set to "Cambridge")
-        location = loc;
-    }
-
-        public void init(){
+    public void init() {
         // Initialise models
 
         // Initialize screens (with required models as parameters)
@@ -190,7 +184,6 @@ public class Application {
 
         // Initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-
         homeController = new HomeController(settingsModel,homeModel);
         dailyController = new DailyController(settingsModel,daily);
         hourlyController = new HourlyController(settingsModel,hourly);
@@ -205,7 +198,7 @@ public class Application {
 
 
         window.setTitle("Weather App");
-        window.setSize(360, 640);
+        window.setSize(370, 675);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }
