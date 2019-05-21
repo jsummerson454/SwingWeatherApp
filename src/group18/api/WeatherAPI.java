@@ -4,6 +4,7 @@ import com.github.dvdme.ForecastIOLib.FIODaily;
 import com.github.dvdme.ForecastIOLib.FIODataPoint;
 import com.github.dvdme.ForecastIOLib.FIOHourly;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
+import group18.Main;
 import group18.backend.Day;
 import group18.backend.Hour;
 import group18.backend.WeatherIconType;
@@ -56,6 +57,40 @@ public class WeatherAPI
 
         return new ArrayList(dailyForecast);
     }
+
+    public static void setLocation(String loc) {
+        loc = loc.toLowerCase();
+        //due to API limitations we cannot geocode user's location input into long, lat coordinates. We have set it
+        //so we can switch between 2 locations in our prototype
+        if (loc.equals(Main.app.location)) {
+            return;
+        }
+
+        switch (loc) {
+            case "cambridge":
+                fio.getForecast("52.2053", "0.1218");
+                break;
+            case "scunthorpe":
+                fio.getForecast("53.589106", "-0.655427");
+                break;
+            case "nairobi":
+                fio.getForecast("-1.301829", "36.823359");
+                break;
+            default:
+                System.out.println("Don't have location information for that location, setting to Cambridge by default");
+                loc = "cambridge";
+                fio.getForecast("52.2053", "0.1218");
+                break;
+        }
+        Main.app.location = loc;
+
+        hourlyForecast = getHourlyForecastAPICall();
+        dailyForecast = getDailyForecastAPICall();
+
+        Main.app.refreshAll();
+
+    }
+
 
     private static List<Day> getDailyForecastAPICall()
     {

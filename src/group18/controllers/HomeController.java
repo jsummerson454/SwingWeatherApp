@@ -8,6 +8,8 @@ import group18.screens.HomeView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class HomeController {
 
@@ -30,6 +32,8 @@ public class HomeController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.app.addAScreen(Screen.home);
+                Calendar calendar = new GregorianCalendar();
+                Main.app.setHourlyDay(calendar.get(Calendar.DAY_OF_MONTH));
                 Main.app.setViewHourly();
             }
         });
