@@ -225,7 +225,7 @@ public class WeatherAPI
         }
 
         calendar.set(Calendar.YEAR,Integer.parseInt(year));
-        calendar.set(Calendar.MONTH,Integer.parseInt(month));
+        calendar.set(Calendar.MONTH,Integer.parseInt(month) - 1);
         calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day));
 
         return calendar;
