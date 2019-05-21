@@ -69,8 +69,15 @@ public class HourlyController {
         {
             HourlyPanels hourPanel = new HourlyPanels(hour);
             constraints.gridy = y++;
+            constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
+            hourPanel.addEventButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EventAdder EventAdder = new EventAdder();
+                }
+            });
             hourPanel.main.addMouseListener(new MouseAdapter()
             {
                 @Override

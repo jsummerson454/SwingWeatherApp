@@ -8,7 +8,7 @@ import java.awt.*;
 public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
-    private JButton addEventButton;
+    public JButton addEventButton;
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
@@ -141,7 +141,7 @@ public class HourlyPanels {
         gbc.insets = new Insets(5, 10, 5, 10);
         panel4.add(lbDegrees, gbc);
         lbWeatherIcon = new JLabel();
-        lbWeatherIcon.setPreferredSize(new Dimension(80, 60));
+        lbWeatherIcon.setPreferredSize(new Dimension(60, 80));
         lbWeatherIcon.setText("WeatherIcon");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
