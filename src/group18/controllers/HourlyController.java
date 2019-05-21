@@ -89,10 +89,10 @@ public class HourlyController {
 //            hourPanel.lbWeatherIcon.setIcon();
             ImageIcon imageIcon = Application.getWeatherIcon(hour.getWeatherIconType()); // load the image to a imageIcon
             Image image = imageIcon.getImage(); // transform it
-            Image newimg = image.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+            Image newimg = image.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
             imageIcon = new ImageIcon(newimg);
-            hourPanel.lbCallendarIcon.setText("");
-            hourPanel.lbCallendarIcon.setIcon(imageIcon);
+            hourPanel.lbWeatherIcon.setText("");
+            hourPanel.lbWeatherIcon.setIcon(imageIcon);
             hourPanel.lbDate.setText("Time: \n" + Integer.toString(hour.getHour()) + ":00");
             hourPanel.lbHumidity.setText("Humidity: \n" + Double.toString(hour.getHumidity()) + "%");
             hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hour.getApparentTemperature()));
