@@ -136,6 +136,11 @@ public class Application {
         }
     }
 
+    public void setHourlyDay(int day)
+    {
+        hourlyController.openForADayOfMonth(day);
+    }
+
     public void init() {
         // Initialise models
 
