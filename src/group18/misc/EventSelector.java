@@ -6,7 +6,7 @@ import java.awt.*;
 public class EventSelector {
     public JPanel main;
     public JButton enterButton;
-    private JTextField countryField;
+    public JTextField countryField;
     public JButton backButton;
     private JLabel countryLabel;
 

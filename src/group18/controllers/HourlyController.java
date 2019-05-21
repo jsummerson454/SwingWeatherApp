@@ -72,24 +72,7 @@ public class HourlyController {
             constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
-            hourPanel.addEventButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    EventAdder EventAdder = new EventAdder();
-                }
-            });
-            hourPanel.main.addMouseListener(new MouseAdapter()
-            {
-                @Override
-                public void mouseClicked(MouseEvent e)
-                {
-                    super.mouseClicked(e);
 
-//                    TODO: OPEN THE Hourly Screen
-                    System.out.println("Opening for day: " + hour.getDayOfMonth());
-
-                }
-            });
 
 //            TODO
 //            hourPanel.lbCallendarIcon.setIcon();
@@ -107,7 +90,24 @@ public class HourlyController {
             hourPanel.main.setVisible(true);
             hourlyPanels.add(hourPanel);
 
+            hourPanel.addEventButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EventAdder EventAdder = new EventAdder(hour);
+                }
+            });
+            hourPanel.main.addMouseListener(new MouseAdapter()
+            {
+                @Override
+                public void mouseClicked(MouseEvent e)
+                {
+                    super.mouseClicked(e);
 
+//                    TODO: OPEN THE Hourly Screen
+                    System.out.println("Opening for day: " + hour.getDayOfMonth());
+
+                }
+            });
         }
 
 
