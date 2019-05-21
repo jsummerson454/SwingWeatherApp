@@ -141,7 +141,7 @@ public class HourlyPanels {
         gbc.insets = new Insets(5, 10, 5, 10);
         panel4.add(lbDegrees, gbc);
         lbWeatherIcon = new JLabel();
-        lbWeatherIcon.setPreferredSize(new Dimension(80, 16));
+        lbWeatherIcon.setPreferredSize(new Dimension(80, 60));
         lbWeatherIcon.setText("WeatherIcon");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;

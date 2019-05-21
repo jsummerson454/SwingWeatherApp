@@ -117,7 +117,7 @@
           <gridbag top="5" left="10" bottom="5" right="10" weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <preferredSize width="80" height="16"/>
+          <preferredSize width="60" height="80"/>
           <text value="WeatherIcon"/>
         </properties>
       </component>
