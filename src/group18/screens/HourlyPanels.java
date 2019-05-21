@@ -9,19 +9,18 @@ public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
     public JLabel lbCallendarIcon;
-    private JButton addEventButton;
+    private JButton eventButton;
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
 
     private Hour hour;
-    public Hour getHour()
-    {
+
+    public Hour getHour() {
         return hour;
     }
 
-    public HourlyPanels(Hour hour)
-    {
+    public HourlyPanels(Hour hour) {
         this.hour = hour;
     }
 
@@ -47,8 +46,10 @@ public class HourlyPanels {
     private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
+        main.setBackground(new Color(-2103566));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
+        panel1.setBackground(new Color(-2103566));
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -65,14 +66,9 @@ public class HourlyPanels {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel1.add(lbDate, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel1.add(spacer1, gbc);
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new GridBagLayout());
+        panel2.setBackground(new Color(-2103566));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -88,14 +84,9 @@ public class HourlyPanels {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel2.add(lbHumidity, gbc);
-        final JPanel spacer2 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel2.add(spacer2, gbc);
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridBagLayout());
+        panel3.setBackground(new Color(-2103566));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -111,26 +102,15 @@ public class HourlyPanels {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel3.add(lbFeelslike, gbc);
-        final JPanel spacer3 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel3.add(spacer3, gbc);
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridBagLayout());
+        panel4.setBackground(new Color(-2103566));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel4, gbc);
-        final JPanel spacer4 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel4.add(spacer4, gbc);
         lbDegrees = new JLabel();
         lbDegrees.setPreferredSize(new Dimension(120, 20));
         lbDegrees.setText("Temperature");
@@ -149,21 +129,22 @@ public class HourlyPanels {
         gbc.gridheight = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
         main.add(lbCallendarIcon, gbc);
-        addEventButton = new JButton();
-        addEventButton.setAlignmentY(0.8f);
-        addEventButton.setMaximumSize(new Dimension(100, 100));
-        addEventButton.setMinimumSize(new Dimension(100, 100));
-        addEventButton.setPreferredSize(new Dimension(80, 40));
-        addEventButton.setRequestFocusEnabled(false);
-        addEventButton.setRolloverEnabled(false);
-        addEventButton.setSelected(false);
-        addEventButton.setText("+ Add Event");
-        addEventButton.setVerifyInputWhenFocusTarget(true);
+        eventButton = new JButton();
+        eventButton.setAlignmentY(0.8f);
+        eventButton.setBackground(new Color(-1842503));
+        eventButton.setMaximumSize(new Dimension(100, 100));
+        eventButton.setMinimumSize(new Dimension(100, 100));
+        eventButton.setPreferredSize(new Dimension(80, 40));
+        eventButton.setRequestFocusEnabled(false);
+        eventButton.setRolloverEnabled(false);
+        eventButton.setSelected(false);
+        eventButton.setText("+Event");
+        eventButton.setVerifyInputWhenFocusTarget(true);
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        main.add(addEventButton, gbc);
+        main.add(eventButton, gbc);
     }
 
     /**

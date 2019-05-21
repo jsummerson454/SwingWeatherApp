@@ -101,7 +101,6 @@ public class SettingsModel implements Serializable
     public void initView() {
         // Initalises the labels, sliders and radio buttons on the screen
         updateTemperatureLabels();
-        updateTemperatureLabels();
         settingsView.coldSlider.setValue((int)(coldThreshold-coldStart));
         settingsView.hotSlider.setValue((int)(hotThreshold-hotStart));
         if (celsius) {

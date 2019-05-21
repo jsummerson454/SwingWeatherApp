@@ -13,14 +13,12 @@ public class DayPanel {
     public JLabel lbCallendarIcon;
     private Day day;
 
-    public Day getDay()
-    {
+    public Day getDay() {
         return day;
     }
 
 
-    public DayPanel(Day day)
-    {
+    public DayPanel(Day day) {
         this.day = day;
     }
 
@@ -44,6 +42,7 @@ public class DayPanel {
         main.setLayout(new GridBagLayout());
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
+        panel1.setBackground(new Color(-2103566));
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -86,18 +85,6 @@ public class DayPanel {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 0, 5, 10);
         panel1.add(lbCallendarIcon, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        main.add(spacer1, gbc);
-        final JPanel spacer2 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        main.add(spacer2, gbc);
     }
 
     /**
