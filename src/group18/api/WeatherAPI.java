@@ -57,24 +57,20 @@ public class WeatherAPI
         {
             // Prevents wasteful calls
             dailyForecast = getDailyForecastAPICall();
-            if(null != hourlyForecast)
-            {
-                mapHoursToDays();
-            }
         }
 
         return new ArrayList(dailyForecast);
     }
 
     public static void setLocation(String loc) {
+        loc = loc.toLowerCase();
         //due to API limitations we cannot geocode user's location input into long, lat coordinates. We have set it
         //so we can switch between 2 locations in our prototype
-        String locLower = loc.toLowerCase();
-        if (locLower.equals(Main.app.location.toLowerCase())) {
+        if (loc.equals(Main.app.location)) {
             return;
         }
 
-        switch (locLower) {
+        switch (loc) {
             case "cambridge":
                 fio.getForecast("52.2053", "0.1218");
                 break;
@@ -86,11 +82,11 @@ public class WeatherAPI
                 break;
             default:
                 System.out.println("Don't have location information for that location, setting to Cambridge by default");
-                loc = "Cambridge";
+                loc = "cambridge";
                 fio.getForecast("52.2053", "0.1218");
                 break;
         }
-        Main.app.location = loc.substring(0,1).toUpperCase() + loc.substring(1).toLowerCase();
+        Main.app.location = loc;
 
         hourlyForecast = getHourlyForecastAPICall();
         dailyForecast = getDailyForecastAPICall();
@@ -171,11 +167,6 @@ public class WeatherAPI
         if( null == hourlyForecast)
         {
             hourlyForecast = getHourlyForecastAPICall();
-
-            if(null != dailyForecast)
-            {
-                mapHoursToDays();
-            }
         }
 
         return new ArrayList(hourlyForecast);
@@ -209,9 +200,6 @@ public class WeatherAPI
                 hour.setTemperature(Double.parseDouble(point.getByKey("temperature")));
             }
         }
-
-
-
 
         return hourlyForecast;
     }
@@ -287,7 +275,7 @@ public class WeatherAPI
 
         calendar.set(Calendar.YEAR,Integer.parseInt(year));
         calendar.set(Calendar.MONTH,Integer.parseInt(month) - 1);
-        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day) - 1);
+        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day));
 
         return calendar;
     }

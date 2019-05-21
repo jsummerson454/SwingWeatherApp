@@ -129,12 +129,6 @@ public class HourlyController {
         {
             hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hourPanel.getHour().getTemperature()));
             hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hourPanel.getHour().getApparentTemperature()));
-            ImageIcon imageIcon = Application.getWeatherIcon(hourPanel.getHour().getWeatherIconType()); // load the image to a imageIcon
-            Image image = imageIcon.getImage(); // transform it
-            Image newimg = image.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
-            imageIcon = new ImageIcon(newimg);
-            hourPanel.lbWeatherIcon.setText("");
-            hourPanel.lbWeatherIcon.setIcon(imageIcon);
         });
     }
 
@@ -142,8 +136,6 @@ public class HourlyController {
     public void refresh() {
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
-        addHourlyForecast(model.getHourlyList());
         updateTemperatureLabels();
-        view.setLocationLabel();
     }
 }
