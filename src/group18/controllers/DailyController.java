@@ -122,5 +122,9 @@ public class DailyController {
     }
 
     public void refresh() {
+        model.loadDailyForecast();
+        addDailyForecast(model.getDayList());
+        updateTemperatureLabels();
+        view.setLocation();
     }
 }
