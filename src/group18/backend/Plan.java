@@ -5,6 +5,6 @@ public class Plan
     private String title;
 
     public Plan(String text) {
-        this.title=title;
+        this.title=text;
     }
 }
