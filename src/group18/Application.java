@@ -23,6 +23,8 @@ public class Application {
 
     public void refreshAll() {
         homeModel.refreshLabels();
+        hourlyController.refresh();
+        dailyController.refresh();
     }
 
     private HomeController homeController;
@@ -202,6 +204,11 @@ public class Application {
         window.setSize(370, 675);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
+    }
+
+    public Application (String loc) {
+        // Sets default location to Cambridge
+        location = loc;
     }
 
 

@@ -50,14 +50,13 @@ public class HourlyController {
         addHourlyForecast(model.getHourlyList());
     }
 
-    private void initModel(){
+    private void initModel() {
         model = new HourlyModel();
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
     }
 
-    public void openForADayOfMonth(int dayOfMonth)
-    {
+    public void openForADayOfMonth(int dayOfMonth) {
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(dayOfMonth);
         addHourlyForecast(model.getHourlyList());
@@ -65,27 +64,45 @@ public class HourlyController {
 
     public void addHourlyForecast(List<Hour> HourList)
     {
+        // Clearing the panel removing all current components
         hourlyPanels.clear();
         view.spHourPanel.removeAll();
 
+        // Setting up the layout
         GridBagLayout layout = new GridBagLayout();
         view.spHourPanel.setLayout(layout);
-
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = 1;
         int y = 0;
 
         for (Hour hour : HourList)
         {
+            // For each hour we add a panel in the gridbag layout
             HourlyPanels hourPanel = new HourlyPanels(hour);
             constraints.gridy = y++;
             constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
+            hourPanel.eventButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EventAdder EventAdder = new EventAdder(hour);
+                }
+            });
+            hourPanel.main.addMouseListener(new MouseAdapter()
+            {
+                @Override
+                public void mouseClicked(MouseEvent e)
+                {
+                    super.mouseClicked(e);
 
-//            TODO
-//            hourPanel.lbCallendarIcon.setIcon();
-//            hourPanel.lbWeatherIcon.setIcon();
+//                    TODO: OPEN THE Hourly Screen
+                    System.out.println("Opening for day: " + hour.getDayOfMonth());
+
+                }
+            });
+
+            // Adding details about the hour to a panel for that hour
             ImageIcon imageIcon = Application.getWeatherIcon(hour.getWeatherIconType()); // load the image to a imageIcon
             Image image = imageIcon.getImage(); // transform it
             Image newimg = image.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
@@ -114,8 +131,21 @@ public class HourlyController {
         {
             hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hourPanel.getHour().getTemperature()));
             hourPanel.lbFeelslike.setText("Feels like: \n" + settingsModel.getInUnits(hourPanel.getHour().getApparentTemperature()));
+            ImageIcon imageIcon = Application.getWeatherIcon(hourPanel.getHour().getWeatherIconType()); // load the image to a imageIcon
+            Image image = imageIcon.getImage(); // transform it
+            Image newimg = image.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+            imageIcon = new ImageIcon(newimg);
+            hourPanel.lbWeatherIcon.setText("");
+            hourPanel.lbWeatherIcon.setIcon(imageIcon);
         });
     }
 
 
+    public void refresh() {
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
+        addHourlyForecast(model.getHourlyList());
+        updateTemperatureLabels();
+        view.setLocationLabel();
+    }
 }

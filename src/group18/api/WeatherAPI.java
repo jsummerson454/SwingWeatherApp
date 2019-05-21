@@ -18,11 +18,13 @@ public class WeatherAPI
     private static ForecastIO fio;
     private static Map<Integer,String> dayOfWeekMap = new HashMap<>();
     static {
+        // Makes a call retrieving the weather data
         fio = new ForecastIO(apiKey);
         fio.setUnits(ForecastIO.UNITS_SI);
         fio.setLang(ForecastIO.LANG_ENGLISH);
         fio.getForecast("52.2053", "0.1218");
 
+        // Maps the string to a weather icon enum
         weatherTypeIconMap.put("\"clear-day\"", WeatherIconType.Clear);
         weatherTypeIconMap.put("\"clear-night\"", WeatherIconType.Clear);
         weatherTypeIconMap.put("\"rain\"", WeatherIconType.Rain);
@@ -34,6 +36,7 @@ public class WeatherAPI
         weatherTypeIconMap.put("\"partly-cloudy-night\"", WeatherIconType.Partly_Cloudy);
         weatherTypeIconMap.put("\"cloudy\"", WeatherIconType.Cloudy);
 
+        // Map from a calender day int to a string used to represent the day
         dayOfWeekMap.put(Calendar.MONDAY,"Mon");
         dayOfWeekMap.put(Calendar.TUESDAY,"Tue");
         dayOfWeekMap.put(Calendar.WEDNESDAY,"Wed");
@@ -44,29 +47,34 @@ public class WeatherAPI
 
     }
 
+    // If we already have them we do not make a call again
     private static List<Day> dailyForecast = null;
     private static List<Hour> hourlyForecast = null;
 
-    //  want to make only one api call per opening of the app
     public static List<Day> getDailyForecast()
     {
         if( null == dailyForecast)
         {
+            // Prevents wasteful calls
             dailyForecast = getDailyForecastAPICall();
+            if(null != hourlyForecast)
+            {
+                mapHoursToDays();
+            }
         }
 
         return new ArrayList(dailyForecast);
     }
 
     public static void setLocation(String loc) {
-        loc = loc.toLowerCase();
         //due to API limitations we cannot geocode user's location input into long, lat coordinates. We have set it
         //so we can switch between 2 locations in our prototype
-        if (loc.equals(Main.app.location)) {
+        String locLower = loc.toLowerCase();
+        if (locLower.equals(Main.app.location.toLowerCase())) {
             return;
         }
 
-        switch (loc) {
+        switch (locLower) {
             case "cambridge":
                 fio.getForecast("52.2053", "0.1218");
                 break;
@@ -78,11 +86,11 @@ public class WeatherAPI
                 break;
             default:
                 System.out.println("Don't have location information for that location, setting to Cambridge by default");
-                loc = "cambridge";
+                loc = "Cambridge";
                 fio.getForecast("52.2053", "0.1218");
                 break;
         }
-        Main.app.location = loc;
+        Main.app.location = loc.substring(0,1).toUpperCase() + loc.substring(1).toLowerCase();
 
         hourlyForecast = getHourlyForecastAPICall();
         dailyForecast = getDailyForecastAPICall();
@@ -126,6 +134,8 @@ public class WeatherAPI
 
     public static Day getForecastForADay(int dayOfMonth)
     {
+        // Getting the forecast for the day of the month entered
+        // this is used to get the current day in the home screen
         List<Day> days = getDailyForecast();
 
         for(Day day: days)
@@ -140,6 +150,7 @@ public class WeatherAPI
 
     public static List<Hour> getHourlyForecastForDayOfMonth(int dayOfMonth)
     {
+        // Gets the hourly forecast for a particular day
         List<Hour> hours = getAllHoursForecast();
 
         List<Hour> res = new ArrayList<>();
@@ -160,6 +171,11 @@ public class WeatherAPI
         if( null == hourlyForecast)
         {
             hourlyForecast = getHourlyForecastAPICall();
+
+            if(null != dailyForecast)
+            {
+                mapHoursToDays();
+            }
         }
 
         return new ArrayList(hourlyForecast);
@@ -167,13 +183,14 @@ public class WeatherAPI
 
     private static List<Hour> getHourlyForecastAPICall()
     {
+        // This call returns our hourly forecast returning the list of hours
         List<Hour> hourlyForecast = new ArrayList<>();
         FIOHourly hourly = new FIOHourly(fio);
 
         //In case there is no daily data available
         if(hourly.hours()>0)
         {
-            //Print daily data
+            // Print daily data
             for (int i = 0; i < hourly.hours(); i++)
             {
                 Hour hour = new Hour();
@@ -193,12 +210,16 @@ public class WeatherAPI
             }
         }
 
+
+
+
         return hourlyForecast;
     }
 
 
     private static WeatherIconType parseIcon(String api_text)
     {
+        // Getting a string representing the icon and parsing it to an icon type
         WeatherIconType weatherIconType = weatherTypeIconMap.get(api_text);
 
         if( null == weatherIconType)
@@ -211,6 +232,7 @@ public class WeatherAPI
 
     private static int parseDayFromTime(String time)
     {
+        // Takes a time string and returns an int representing the day
         String[] parts = time.trim().split("-");
 
         String day  = parts[0];
@@ -225,6 +247,7 @@ public class WeatherAPI
 
     private static int parseHourFromTime(String time)
     {
+        // Takes our time string and returns an int representing the hour
         String[] parts = time.trim().split(" ")[1].split(":");
 
         String hour  = parts[0];
@@ -239,6 +262,7 @@ public class WeatherAPI
 
     private static Calendar getCalenderFromTime(String time)
     {
+        // Returns a calendar object from a time string
         Calendar calendar = new GregorianCalendar();
 
         String[] parts = time.trim().split(" ")[0].split("-");
@@ -263,7 +287,7 @@ public class WeatherAPI
 
         calendar.set(Calendar.YEAR,Integer.parseInt(year));
         calendar.set(Calendar.MONTH,Integer.parseInt(month) - 1);
-        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day));
+        calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day) - 1);
 
         return calendar;
     }
