@@ -97,16 +97,15 @@ public class DailyController {
                 {
                     super.mouseClicked(e);
 
-
-//                    TODO: OPEN THE Hourly Screen
+                    // Opens the hourly screen for that day
                     System.out.println("Opening for day: " + day.getDayOfMonth());
+                    Main.app.addAScreen(Screen.daily);
                     Main.app.setHourlyDay(day.getDayOfMonth());
                     Main.app.setViewHourly();
 
                 }
             });
 
-//            TODO
             ImageIcon imageIcon = Application.getWeatherIcon(day.getWeatherIconType()); // load the image to a imageIcon
             Image image = imageIcon.getImage(); // transform it
             Image newimg = image.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
