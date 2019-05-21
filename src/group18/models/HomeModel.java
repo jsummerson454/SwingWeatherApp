@@ -36,7 +36,7 @@ public class HomeModel {
 
         // Setting up the average temperature
         averageTemp = 0.5*(today.getMaxTemperature()+today.getMinTemperature());
-        
+
         homeView.imageIcon.setIcon(Application.getWeatherIcon(today.getWeatherIconType()));
 
         // Using function in to convert to string

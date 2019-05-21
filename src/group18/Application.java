@@ -152,7 +152,6 @@ public class Application {
 
         //set initial location (set to "Cambridge")
         location = loc;
-        init();
     }
 
         public void init(){
