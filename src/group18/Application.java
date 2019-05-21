@@ -184,7 +184,7 @@ public class Application {
 
 
         window.setTitle("Weather App");
-        window.setSize(360, 640);
+        window.setSize(370, 675);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }
