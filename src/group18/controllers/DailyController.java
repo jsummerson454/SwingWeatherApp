@@ -70,6 +70,9 @@ public class DailyController {
         {
             DayPanel dayPanel = new DayPanel(day);
             constraints.gridy = y++;
+            constraints.weightx = 1;
+
+
             dayPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.dayListPanel.add(dayPanel.main, constraints);
             dayPanel.main.addMouseListener(new MouseAdapter()

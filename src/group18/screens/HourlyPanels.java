@@ -8,11 +8,16 @@ import java.awt.*;
 public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
+<<<<<<< HEAD
     public JLabel lbCallendarIcon;
     private JButton eventButton;
+=======
+    public JButton addEventButton;
+>>>>>>> 85ae88c7961dd92295f44f6d358307f4caa2260e
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
+    public JLabel lbWeatherIcon;
 
     private Hour hour;
 
@@ -90,6 +95,7 @@ public class HourlyPanels {
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
+        gbc.gridheight = 2;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel3, gbc);
@@ -107,7 +113,7 @@ public class HourlyPanels {
         panel4.setBackground(new Color(-2103566));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel4, gbc);
@@ -120,14 +126,15 @@ public class HourlyPanels {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
         panel4.add(lbDegrees, gbc);
-        lbCallendarIcon = new JLabel();
-        lbCallendarIcon.setPreferredSize(new Dimension(80, 16));
-        lbCallendarIcon.setText("WeatherIcon");
+        lbWeatherIcon = new JLabel();
+        lbWeatherIcon.setPreferredSize(new Dimension(60, 80));
+        lbWeatherIcon.setText("WeatherIcon");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.gridheight = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
+<<<<<<< HEAD
         main.add(lbCallendarIcon, gbc);
         eventButton = new JButton();
         eventButton.setAlignmentY(0.8f);
@@ -140,9 +147,22 @@ public class HourlyPanels {
         eventButton.setSelected(false);
         eventButton.setText("+Event");
         eventButton.setVerifyInputWhenFocusTarget(true);
+=======
+        main.add(lbWeatherIcon, gbc);
+        addEventButton = new JButton();
+        addEventButton.setAlignmentY(0.8f);
+        addEventButton.setMaximumSize(new Dimension(100, 100));
+        addEventButton.setMinimumSize(new Dimension(100, 100));
+        addEventButton.setPreferredSize(new Dimension(80, 40));
+        addEventButton.setRequestFocusEnabled(false);
+        addEventButton.setRolloverEnabled(false);
+        addEventButton.setSelected(false);
+        addEventButton.setText("+ Add Event");
+        addEventButton.setVerifyInputWhenFocusTarget(true);
+>>>>>>> 85ae88c7961dd92295f44f6d358307f4caa2260e
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         main.add(eventButton, gbc);
     }
