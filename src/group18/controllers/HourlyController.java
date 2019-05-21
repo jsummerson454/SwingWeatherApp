@@ -102,17 +102,10 @@ public class HourlyController {
             hourPanel.eventButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    EventAdder EventAdder = new EventAdder(hour);
+                    EventAdder EventAdder = new EventAdder(hour, hourPanel);
                 }
             });
-            hourPanel.main.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-
-                }
-
-            }
+        }
     }
 
     public void updateTemperatureLabels()

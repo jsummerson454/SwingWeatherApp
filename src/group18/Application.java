@@ -18,6 +18,9 @@ public class Application {
     private SettingsView settings;
     public String location;
 
+    public Application(String cambridge) {
+    }
+
     public void refreshAll() {
         homeModel.refreshLabels();
     }

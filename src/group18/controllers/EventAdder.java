@@ -53,7 +53,7 @@ public class EventAdder {
                 Plan new_plan = new Plan(event_name);
                 thisHour.setPlan(new_plan);
                 window.dispose();
-                hourPanel.eventButton.setForeground(Color.green);
+                hourPanel.eventButton.setForeground(Color.blue);
                 hourPanel.eventButton.setText(event_name);
             }
         });
