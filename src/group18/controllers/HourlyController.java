@@ -90,7 +90,7 @@ public class HourlyController {
             hourPanel.main.setVisible(true);
             hourlyPanels.add(hourPanel);
 
-            hourPanel.addEventButton.addActionListener(new ActionListener() {
+            hourPanel.eventButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     EventAdder EventAdder = new EventAdder(hour);
