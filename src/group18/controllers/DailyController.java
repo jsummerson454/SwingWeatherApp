@@ -37,6 +37,7 @@ public class DailyController {
             Main.app.setViewSettings();
         });
 
+//        back to home scree
         view.backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,6 +49,7 @@ public class DailyController {
             }
         });
 
+//        suggests good days to go out
         view.suggestButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,12 +64,14 @@ public class DailyController {
     }
 
 
+//    initialise the model
     private void initModel()
     {
         model = new DailyModel();
         model.loadDailyForecast();
     }
 
+//    refresh the day information
     public void addDailyForecast(List<Day> dayList)
     {
         dayPanels.clear();
@@ -129,6 +133,7 @@ public class DailyController {
         }
     }
 
+//    refreshes when we change from F to C in settings or C to F
     public void updateTemperatureLabels()
     {
         dayPanels.forEach(dayPanel ->
@@ -138,6 +143,7 @@ public class DailyController {
         });
     }
 
+//    refreshes the panels when we change the location
     public void refresh() {
         model.loadDailyForecast();
         addDailyForecast(model.getDayList());
