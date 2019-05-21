@@ -71,7 +71,7 @@ public class HourlyController {
             constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
-            hourPanel.addEventButton.addActionListener(new ActionListener() {
+            hourPanel.eventButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     EventAdder EventAdder = new EventAdder();

@@ -5,12 +5,11 @@ import group18.backend.Hour;
 import javax.swing.*;
 import java.awt.*;
 
-public class HourlyPanels {
+public class HourlyPanels
+{
     public JLabel lbDate;
     public JLabel lbDegrees;
-    private JButton eventButton;
-
-    public JButton addEventButton;
+    public JButton eventButton;
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
@@ -18,16 +17,19 @@ public class HourlyPanels {
 
     private Hour hour;
 
-    public Hour getHour() {
+    public Hour getHour()
+    {
         return hour;
     }
 
-    public HourlyPanels(Hour hour) {
+    public HourlyPanels(Hour hour)
+    {
         this.hour = hour;
     }
 
 
-    private void createUIComponents() {
+    private void createUIComponents()
+    {
         // TODO: place custom component creation code here
     }
 
@@ -45,7 +47,8 @@ public class HourlyPanels {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
         main.setBackground(new Color(-2103566));
@@ -153,7 +156,8 @@ public class HourlyPanels {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return main;
     }
 }
