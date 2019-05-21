@@ -1,5 +1,7 @@
 package group18.screens;
 
+import group18.models.HourlyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -137,4 +139,5 @@ public class HourlyView {
     public JComponent $$$getRootComponent$$$() {
         return main;
     }
+
 }

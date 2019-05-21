@@ -16,7 +16,12 @@ public class Application {
     private DailyView daily;
     private HourlyView hourly;
     private SettingsView settings;
-    public static String location;
+    public String location;
+
+    public void refreshAll() {
+        homeModel.refreshLabels();
+    }
+
     private HomeController homeController;
     private DailyController dailyController;
     private HourlyController hourlyController;
@@ -25,6 +30,8 @@ public class Application {
     private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
+    private HomeModel homeModel;
+
 
     private JFrame window;
 
@@ -163,7 +170,7 @@ public class Application {
         home.main.setVisible(true);
         home.main.setSize(360, 640);
 
-        HomeModel homeModel = new HomeModel(settingsModel,home);
+        homeModel = new HomeModel(settingsModel,home);
 
         daily = new DailyView();
         daily.main.setVisible(false);
