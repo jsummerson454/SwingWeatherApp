@@ -59,14 +59,14 @@ public class WeatherAPI
     }
 
     public static void setLocation(String loc) {
-        loc = loc.toLowerCase();
         //due to API limitations we cannot geocode user's location input into long, lat coordinates. We have set it
         //so we can switch between 2 locations in our prototype
-        if (loc.equals(Main.app.location)) {
+        String locLower = loc.toLowerCase();
+        if (locLower.equals(Main.app.location.toLowerCase())) {
             return;
         }
 
-        switch (loc) {
+        switch (locLower) {
             case "cambridge":
                 fio.getForecast("52.2053", "0.1218");
                 break;
@@ -78,11 +78,11 @@ public class WeatherAPI
                 break;
             default:
                 System.out.println("Don't have location information for that location, setting to Cambridge by default");
-                loc = "cambridge";
+                loc = "Cambridge";
                 fio.getForecast("52.2053", "0.1218");
                 break;
         }
-        Main.app.location = loc;
+        Main.app.location = loc.substring(0,1).toUpperCase() + loc.substring(1).toLowerCase();
 
         hourlyForecast = getHourlyForecastAPICall();
         dailyForecast = getDailyForecastAPICall();
