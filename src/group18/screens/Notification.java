@@ -25,6 +25,7 @@ public class Notification {
     private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
+        main.setBackground(new Color(-1));
         tempLabel = new JLabel();
         tempLabel.setBackground(new Color(-1));
         tempLabel.setText("It's cold!");

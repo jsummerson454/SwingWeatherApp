@@ -23,15 +23,38 @@ public class Application {
         homeModel.refreshLabels();
     }
 
+    private HomeController homeController;
+    private DailyController dailyController;
+    private HourlyController hourlyController;
+
     // Keeps a stack of screens traversed through
     private LinkedList<Screen> previousScreen = new LinkedList<>();
 
     private SettingsModel settingsModel;
     private HomeModel homeModel;
 
-    private HourlyController hourlyController;
 
     private JFrame window;
+
+    public void updateTemperatureLabels()
+    {
+        // Updating labels once units or the temperature changes
+        // because of location
+        if(null != homeController)
+        {
+            homeController.updateTemperatureLabels();
+        }
+
+        if(null != dailyController)
+        {
+            dailyController.updateTemperatureLabels();
+        }
+
+        if(null != hourlyController)
+        {
+            hourlyController.updateTemperatureLabels();
+        }
+    }
 
     public static ImageIcon getWeatherIcon(WeatherIconType w) {
         // Gets the corresponding weather icon based on type entered
@@ -66,6 +89,7 @@ public class Application {
     }
 
     public void setViewHome() {
+        // Sets the home screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(false);
         home.main.setVisible(true);
@@ -73,6 +97,7 @@ public class Application {
     }
 
     public void setViewDaily() {
+        // Sets the daily screen visible
         daily.main.setVisible(true);
         hourly.main.setVisible(false);
         home.main.setVisible(false);
@@ -80,6 +105,7 @@ public class Application {
     }
 
     public void setViewHourly() {
+        // Sets the hourly screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(true);
         home.main.setVisible(false);
@@ -87,6 +113,7 @@ public class Application {
     }
 
     public void setViewSettings() {
+        // Sets the setting screen visible
         daily.main.setVisible(false);
         hourly.main.setVisible(false);
         home.main.setVisible(false);
@@ -125,20 +152,24 @@ public class Application {
 
         //set initial location (set to "Cambridge")
         location = loc;
+        init();
+    }
 
-        //initialise models
+        public void init(){
+        // Initialise models
 
-        //initialize screens (with required models as parameters)
+        // Initialize screens (with required models as parameters)
         settings = new SettingsView();
-        // settingsModel = new SettingsModel(settings);
-        try
-        {
+        try {
+            // Used to load any saved settings
             settingsModel = SettingsModel.initSettingsModel(settings);
         } catch (Exception e)
         {
+            // No saved settings default model
             e.printStackTrace();
             settingsModel = new SettingsModel(settings);
         }
+        // Initialising our screens
         settings.main.setVisible(false);
         settings.main.setSize(360, 640);
 
@@ -156,20 +187,15 @@ public class Application {
         hourly.main.setVisible(false);
         hourly.main.setSize(360, 640);
 
-
-
-
-
-
-        //initialise controllers (with screens and required models as parameters)
+        // Initialise controllers (with screens and required models as parameters)
         SettingsController settingsController = new SettingsController(settingsModel);
-        HomeController homeController = new HomeController(settingsModel,homeModel);
-        DailyController dailyController = new DailyController(settingsModel,daily);
+
+        homeController = new HomeController(settingsModel,homeModel);
+        dailyController = new DailyController(settingsModel,daily);
         hourlyController = new HourlyController(settingsModel,hourly);
 
 
-        //add screens to window
-
+        // Add screens to a new window
         window = new JFrame();
         window.add(settings.main);
         window.add(home.main);

@@ -13,8 +13,9 @@ public class HourlyModel {
         return hourList;
     }
 
-    public void loadHourlyForecast(){
-        hourList = WeatherAPI.getAllHoursForecast();
+    public void loadHourlyForecast(int dayOfMonth){
+//        hourList = WeatherAPI.getAllHoursForecast();
+        hourList = WeatherAPI.getHourlyForecastForDayOfMonth(dayOfMonth);
     }
 
 

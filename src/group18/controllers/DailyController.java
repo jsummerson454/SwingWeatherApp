@@ -16,12 +16,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DailyController {
     private DailyView view;
     private DailyModel model;
     private SettingsModel settingsModel;
+    private List<DayPanel> dayPanels = new ArrayList<>();
 
     public DailyController(SettingsModel settingsModel, DailyView view) {
         this.view = view;
@@ -54,6 +56,8 @@ public class DailyController {
 
     public void addDailyForecast(List<Day> dayList)
     {
+        dayPanels.clear();
+
         GridBagLayout layout = new GridBagLayout();
         view.dayListPanel.setLayout(layout);
 
@@ -64,8 +68,11 @@ public class DailyController {
 
         for (Day day : dayList)
         {
-            DayPanel dayPanel = new DayPanel();
+            DayPanel dayPanel = new DayPanel(day);
             constraints.gridy = y++;
+            constraints.weightx = 1;
+
+
             dayPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.dayListPanel.add(dayPanel.main, constraints);
             dayPanel.main.addMouseListener(new MouseAdapter()
@@ -74,6 +81,7 @@ public class DailyController {
                 public void mouseClicked(MouseEvent e)
                 {
                     super.mouseClicked(e);
+
 
 //                    TODO: OPEN THE Hourly Screen
                     System.out.println("Opening for day: " + day.getDayOfMonth());
@@ -95,9 +103,19 @@ public class DailyController {
             dayPanel.lbDegrees.setText(settingsModel.getInUnits((day.getMaxTemperature() + day.getMinTemperature()) / 2.0));
 
             dayPanel.main.setVisible(true);
+            dayPanels.add(dayPanel);
 
 
         }
+    }
+
+    public void updateTemperatureLabels()
+    {
+        dayPanels.forEach(dayPanel ->
+        {
+            dayPanel.lbDegrees.setText(settingsModel.getInUnits
+                    ((dayPanel.getDay().getMaxTemperature() + dayPanel.getDay().getMinTemperature()) / 2.0));
+        });
     }
 
 }

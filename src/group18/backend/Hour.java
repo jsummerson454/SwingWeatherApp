@@ -2,12 +2,22 @@ package group18.backend;
 
 public class Hour {
     private int dayOfMonth;
+    private String dayOfWeek;
+    private boolean has_plan = false;
     private int hour;
     private double humidity;
     private double temperature;
     private double apparentTemperature;
     private WeatherIconType weatherIconType;
     private Plan plan;
+
+    public boolean hasPlan() {return has_plan;}
+
+    public String getDayOfWeek(){return dayOfWeek;}
+
+    public void setDayOfWeek(String dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
 
     public int getDayOfMonth(){
         return dayOfMonth;
@@ -61,7 +71,8 @@ public class Hour {
         return plan;
     }
 
-    public void setPlan(Plan plan){
+    public void setPlan(Plan plan) {
         this.plan = plan;
+        this.has_plan = true;
     }
 }

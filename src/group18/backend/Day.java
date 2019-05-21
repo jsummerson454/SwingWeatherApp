@@ -11,7 +11,19 @@ public class Day
     private double minTemperature;
     private int dayOfMonth;
     private String dayOfWeek;
-    private List<Plan> planList = new ArrayList();
+    private List<Hour> hourList = new ArrayList();
+
+    public List<Hour> getHourList()
+    {
+        return hourList;
+    }
+
+    public void setHourList(List<Hour> hourList)
+    {
+        this.hourList = hourList;
+    }
+
+
 
     public WeatherIconType getWeatherIconType()
     {

@@ -1,5 +1,6 @@
 package group18.models;
 
+import group18.Main;
 import group18.screens.SettingsView;
 
 import java.io.*;
@@ -35,10 +36,12 @@ public class SettingsModel implements Serializable
         return coldThreshold;
     }
 
-    private void updateAboveBelowLabels () {
+    private void updateTemperatureLabels () {
         // Updates labels in the view
         settingsView.belowLabel.setText("Below  " + getInUnits(coldThreshold));
         settingsView.aboveLabel.setText("Above  " + getInUnits(hotThreshold));
+
+        Main.app.updateTemperatureLabels();
     }
 
     public void setColdThreshold(double sliderPos) {
@@ -72,13 +75,13 @@ public class SettingsModel implements Serializable
     public void setCelsius() {
         // Sets celsius and updates labels to celsius
         celsius = true;
-        updateAboveBelowLabels();
+        updateTemperatureLabels();
     }
 
     public void setFahrenheit () {
         // Sets Fahrenheit and updates labels to that unit
         celsius = false;
-        updateAboveBelowLabels();
+        updateTemperatureLabels();
     }
 
     public void notificationsOn () {
@@ -97,8 +100,7 @@ public class SettingsModel implements Serializable
 
     public void initView() {
         // Initalises the labels, sliders and radio buttons on the screen
-        updateAboveBelowLabels();
-        updateAboveBelowLabels();
+        updateTemperatureLabels();
         settingsView.coldSlider.setValue((int)(coldThreshold-coldStart));
         settingsView.hotSlider.setValue((int)(hotThreshold-hotStart));
         if (celsius) {
