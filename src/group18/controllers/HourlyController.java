@@ -132,4 +132,9 @@ public class HourlyController {
     }
 
 
+    public void refresh() {
+        Calendar calendar = new GregorianCalendar();
+        model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
+        updateTemperatureLabels();
+    }
 }

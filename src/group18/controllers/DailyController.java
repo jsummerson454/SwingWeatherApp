@@ -118,4 +118,6 @@ public class DailyController {
         });
     }
 
+    public void refresh() {
+    }
 }
