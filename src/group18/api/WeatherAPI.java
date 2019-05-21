@@ -18,11 +18,13 @@ public class WeatherAPI
     private static ForecastIO fio;
     private static Map<Integer,String> dayOfWeekMap = new HashMap<>();
     static {
+        // Makes a call retrieving the weather data
         fio = new ForecastIO(apiKey);
         fio.setUnits(ForecastIO.UNITS_SI);
         fio.setLang(ForecastIO.LANG_ENGLISH);
         fio.getForecast("52.2053", "0.1218");
 
+        // Maps the string to a weather icon enum
         weatherTypeIconMap.put("\"clear-day\"", WeatherIconType.Clear);
         weatherTypeIconMap.put("\"clear-night\"", WeatherIconType.Clear);
         weatherTypeIconMap.put("\"rain\"", WeatherIconType.Rain);
@@ -34,6 +36,7 @@ public class WeatherAPI
         weatherTypeIconMap.put("\"partly-cloudy-night\"", WeatherIconType.Partly_Cloudy);
         weatherTypeIconMap.put("\"cloudy\"", WeatherIconType.Cloudy);
 
+        // Map from a calender day int to a string used to represent the day
         dayOfWeekMap.put(Calendar.MONDAY,"Mon");
         dayOfWeekMap.put(Calendar.TUESDAY,"Tue");
         dayOfWeekMap.put(Calendar.WEDNESDAY,"Wed");
@@ -44,14 +47,15 @@ public class WeatherAPI
 
     }
 
+    // If we already have them we do not make a call again
     private static List<Day> dailyForecast = null;
     private static List<Hour> hourlyForecast = null;
 
-    //  want to make only one api call per opening of the app
     public static List<Day> getDailyForecast()
     {
         if( null == dailyForecast)
         {
+            // Prevents wasteful calls
             dailyForecast = getDailyForecastAPICall();
         }
 
@@ -126,6 +130,8 @@ public class WeatherAPI
 
     public static Day getForecastForADay(int dayOfMonth)
     {
+        // Getting the forecast for the day of the month entered
+        // this is used to get the current day in the home screen
         List<Day> days = getDailyForecast();
 
         for(Day day: days)
@@ -140,6 +146,7 @@ public class WeatherAPI
 
     public static List<Hour> getHourlyForecastForDayOfMonth(int dayOfMonth)
     {
+        // Gets the hourly forecast for a particular day
         List<Hour> hours = getAllHoursForecast();
 
         List<Hour> res = new ArrayList<>();
@@ -167,13 +174,14 @@ public class WeatherAPI
 
     private static List<Hour> getHourlyForecastAPICall()
     {
+        // This call returns our hourly forecast returning the list of hours
         List<Hour> hourlyForecast = new ArrayList<>();
         FIOHourly hourly = new FIOHourly(fio);
 
         //In case there is no daily data available
         if(hourly.hours()>0)
         {
-            //Print daily data
+            // Print daily data
             for (int i = 0; i < hourly.hours(); i++)
             {
                 Hour hour = new Hour();
@@ -199,6 +207,7 @@ public class WeatherAPI
 
     private static WeatherIconType parseIcon(String api_text)
     {
+        // Getting a string representing the icon and parsing it to an icon type
         WeatherIconType weatherIconType = weatherTypeIconMap.get(api_text);
 
         if( null == weatherIconType)
@@ -211,6 +220,7 @@ public class WeatherAPI
 
     private static int parseDayFromTime(String time)
     {
+        // Takes a time string and returns an int representing the day
         String[] parts = time.trim().split("-");
 
         String day  = parts[0];
@@ -225,6 +235,7 @@ public class WeatherAPI
 
     private static int parseHourFromTime(String time)
     {
+        // Takes our time string and returns an int representing the hour
         String[] parts = time.trim().split(" ")[1].split(":");
 
         String hour  = parts[0];
@@ -239,6 +250,7 @@ public class WeatherAPI
 
     private static Calendar getCalenderFromTime(String time)
     {
+        // Returns a calendar object from a time string
         Calendar calendar = new GregorianCalendar();
 
         String[] parts = time.trim().split(" ")[0].split("-");
