@@ -59,7 +59,7 @@ public class WeatherAPI
             dailyForecast = getDailyForecastAPICall();
             if(null != hourlyForecast)
             {
-                mapHoursToDays();
+//                mapHoursToDays();
             }
         }
 
@@ -174,7 +174,7 @@ public class WeatherAPI
 
             if(null != dailyForecast)
             {
-                mapHoursToDays();
+//                mapHoursToDays();
             }
         }
 
