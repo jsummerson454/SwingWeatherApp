@@ -43,8 +43,10 @@ public class HourlyView {
     private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
+        main.setBackground(new Color(-8928782));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
+        panel1.setBackground(new Color(-8928782));
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -76,6 +78,7 @@ public class HourlyView {
         spHourList.setBorder(BorderFactory.createTitledBorder(""));
         spHourPanel = new JPanel();
         spHourPanel.setLayout(new GridBagLayout());
+        spHourPanel.setBackground(new Color(-3284494));
         spHourList.setViewportView(spHourPanel);
         locationLabel = new JLabel();
         locationLabel.setAlignmentX(0.0f);
@@ -88,44 +91,25 @@ public class HourlyView {
         gbc.anchor = GridBagConstraints.WEST;
         panel1.add(locationLabel, gbc);
         settingsButton = new JButton();
+        settingsButton.setBackground(new Color(-8928782));
         settingsButton.setText("");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.EAST;
         panel1.add(settingsButton, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        main.add(spacer1, gbc);
         final JPanel panel3 = new JPanel();
-        panel3.setLayout(new GridBagLayout());
+        panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        panel3.setBackground(new Color(-8928782));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.BOTH;
         main.add(panel3, gbc);
-        final JPanel spacer2 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        panel3.add(spacer2, gbc);
         backButton = new JButton();
+        backButton.setBackground(new Color(-1842305));
         backButton.setText("Back");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel3.add(backButton, gbc);
-        final JPanel spacer3 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        panel3.add(spacer3, gbc);
+        panel3.add(backButton);
     }
 
     /**

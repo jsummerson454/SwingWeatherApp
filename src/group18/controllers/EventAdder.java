@@ -1,5 +1,6 @@
 package group18.controllers;
 
+import group18.misc.EventSelector;
 import group18.misc.Location;
 import group18.misc.LocationSelector;
 import group18.models.SettingsModel;
@@ -10,11 +11,11 @@ import java.awt.event.ActionListener;
 
 public class EventAdder {
 
-    public EventAdder(SettingsModel settingsModel) {
+    public EventAdder() {
         // Creating our pop-up box which enables the user to select a location
         JFrame window = new JFrame();
 
-        LocationSelector loc = new LocationSelector();
+        EventSelector loc = new EventSelector();
 
         window.setTitle("Add an event");
         window.setSize(300, 150);
@@ -32,7 +33,6 @@ public class EventAdder {
         loc.enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Location l = new Location(loc.countryField.getText(), loc.cityField.getText());
             }
         });
 
