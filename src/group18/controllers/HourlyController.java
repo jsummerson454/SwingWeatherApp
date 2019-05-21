@@ -51,7 +51,6 @@ public class HourlyController {
     private void initModel(){
         model = new HourlyModel();
         model.loadHourlyForecast();
-//        System.out.println("Hi");
     }
 
     public void addHourlyForecast(List<Hour> HourList)

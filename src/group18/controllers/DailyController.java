@@ -82,6 +82,7 @@ public class DailyController {
                 {
                     super.mouseClicked(e);
 
+
 //                    TODO: OPEN THE Hourly Screen
                     System.out.println("Opening for day: " + day.getDayOfMonth());
 
