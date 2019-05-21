@@ -1,5 +1,6 @@
 package group18.screens;
 
+import group18.Main;
 import group18.models.HourlyModel;
 
 import javax.swing.*;
@@ -27,6 +28,11 @@ public class HourlyView {
         settingsButton.setMaximumSize(buttonSize);
         settingsButton.setMinimumSize(buttonSize);
         settingsButton.setPreferredSize(buttonSize);
+        locationLabel.setText(Main.app.location);
+    }
+
+    public void setLocationLabel() {
+        locationLabel.setText(Main.app.location);
     }
 
     {
@@ -141,5 +147,4 @@ public class HourlyView {
     public JComponent $$$getRootComponent$$$() {
         return main;
     }
-
 }
