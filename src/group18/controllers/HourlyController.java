@@ -83,12 +83,7 @@ public class HourlyController {
             constraints.weightx = 1;
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
-            hourPanel.eventButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    EventAdder EventAdder = new EventAdder(hour, hourPanel);
-                }
-            });
+
             hourPanel.main.addMouseListener(new MouseAdapter()
             {
                 @Override
@@ -116,6 +111,8 @@ public class HourlyController {
             hourPanel.main.setVisible(true);
             hourlyPanels.add(hourPanel);
 
+
+            // When event button is clicked, pop up comes up
             hourPanel.eventButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
