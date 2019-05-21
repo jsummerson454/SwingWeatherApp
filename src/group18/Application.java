@@ -201,5 +201,10 @@ public class Application {
         window.setVisible(true);
     }
 
+    public Application (String loc) {
+        // Sets default location to Cambridge
+        location = loc;
+    }
+
 
 }
