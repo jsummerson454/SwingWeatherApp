@@ -8,12 +8,9 @@ import java.awt.*;
 public class HourlyPanels {
     public JLabel lbDate;
     public JLabel lbDegrees;
-<<<<<<< HEAD
-    public JLabel lbCallendarIcon;
     private JButton eventButton;
-=======
+
     public JButton addEventButton;
->>>>>>> 85ae88c7961dd92295f44f6d358307f4caa2260e
     public JPanel main;
     public JLabel lbHumidity;
     public JLabel lbFeelslike;
@@ -134,8 +131,7 @@ public class HourlyPanels {
         gbc.gridy = 1;
         gbc.gridheight = 3;
         gbc.insets = new Insets(5, 10, 5, 10);
-<<<<<<< HEAD
-        main.add(lbCallendarIcon, gbc);
+        main.add(lbWeatherIcon, gbc);
         eventButton = new JButton();
         eventButton.setAlignmentY(0.8f);
         eventButton.setBackground(new Color(-1842503));
@@ -147,19 +143,6 @@ public class HourlyPanels {
         eventButton.setSelected(false);
         eventButton.setText("+Event");
         eventButton.setVerifyInputWhenFocusTarget(true);
-=======
-        main.add(lbWeatherIcon, gbc);
-        addEventButton = new JButton();
-        addEventButton.setAlignmentY(0.8f);
-        addEventButton.setMaximumSize(new Dimension(100, 100));
-        addEventButton.setMinimumSize(new Dimension(100, 100));
-        addEventButton.setPreferredSize(new Dimension(80, 40));
-        addEventButton.setRequestFocusEnabled(false);
-        addEventButton.setRolloverEnabled(false);
-        addEventButton.setSelected(false);
-        addEventButton.setText("+ Add Event");
-        addEventButton.setVerifyInputWhenFocusTarget(true);
->>>>>>> 85ae88c7961dd92295f44f6d358307f4caa2260e
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 5;
