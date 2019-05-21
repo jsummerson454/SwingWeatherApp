@@ -10,8 +10,6 @@ public class DayPanel {
     public JLabel lbDate;
     public JLabel lbDegrees;
     public JLabel lbWeatherIcon;
-    public JLabel lbCallendarIcon;
-    public JPanel wow;
     private Day day;
 
     public Day getDay() {
@@ -41,9 +39,9 @@ public class DayPanel {
     private void $$$setupUI$$$() {
         main = new JPanel();
         main.setLayout(new GridBagLayout());
-        wow = new JPanel();
-        wow.setLayout(new GridBagLayout());
-        wow.setBackground(new Color(-2103566));
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridBagLayout());
+        panel1.setBackground(new Color(-2103566));
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -51,7 +49,7 @@ public class DayPanel {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        main.add(wow, gbc);
+        main.add(panel1, gbc);
         lbDate = new JLabel();
         lbDate.setText("Date");
         gbc = new GridBagConstraints();
@@ -59,7 +57,7 @@ public class DayPanel {
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
-        wow.add(lbDate, gbc);
+        panel1.add(lbDate, gbc);
         lbDegrees = new JLabel();
         lbDegrees.setText("Degrees");
         gbc = new GridBagConstraints();
@@ -67,7 +65,7 @@ public class DayPanel {
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
-        wow.add(lbDegrees, gbc);
+        panel1.add(lbDegrees, gbc);
         lbWeatherIcon = new JLabel();
         lbWeatherIcon.setText("WeatherIcon");
         gbc = new GridBagConstraints();
@@ -76,16 +74,7 @@ public class DayPanel {
         gbc.gridheight = 2;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 5, 10);
-        wow.add(lbWeatherIcon, gbc);
-        lbCallendarIcon = new JLabel();
-        lbCallendarIcon.setText("CallendarIcon");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.gridheight = 2;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 0, 5, 10);
-        wow.add(lbCallendarIcon, gbc);
+        panel1.add(lbWeatherIcon, gbc);
     }
 
     /**
