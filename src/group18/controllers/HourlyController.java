@@ -51,12 +51,14 @@ public class HourlyController {
     }
 
     private void initModel() {
+        // Initialises model
         model = new HourlyModel();
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
     }
 
     public void openForADayOfMonth(int dayOfMonth) {
+        // Connects daily with hourly
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(dayOfMonth);
         addHourlyForecast(model.getHourlyList());
@@ -84,6 +86,7 @@ public class HourlyController {
             hourPanel.main.setBorder(BorderFactory.createLineBorder(Color.black));
             view.spHourPanel.add(hourPanel.main, constraints);
 
+            // If the hour panel is clicked, we go onto the next page
             hourPanel.main.addMouseListener(new MouseAdapter()
             {
                 @Override
@@ -130,6 +133,7 @@ public class HourlyController {
 
     public void updateTemperatureLabels()
     {
+        // Refreshes when we change temperature units
         hourlyPanels.forEach(hourPanel ->
         {
             hourPanel.lbDegrees.setText("Temp: \n" + settingsModel.getInUnits(hourPanel.getHour().getTemperature()));
@@ -139,6 +143,7 @@ public class HourlyController {
 
 
     public void refresh() {
+        // Updates temperature when screen is switched
         Calendar calendar = new GregorianCalendar();
         model.loadHourlyForecast(calendar.get(Calendar.DAY_OF_MONTH));
         updateTemperatureLabels();
